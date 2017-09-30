@@ -9,7 +9,11 @@
     <link rel="shortcut icon" href="{{"images/favicon.png" | relURL}}" type="image/x-icon" />
     <link href="{{"css/nucleus.css" | relURL}}" rel="stylesheet">
     <link href="{{"css/font-awesome.min.css" | relURL}}" rel="stylesheet">
+    {{with .Site.Params.highlightStyle}}
+    <link href="{{(printf "css/%s.css" .) | relURL}}" rel="stylesheet">
+    {{else}}
     <link href="{{"css/hybrid.css" | relURL}}" rel="stylesheet">
+    {{end}}
     <link href="{{"css/featherlight.min.css" | relURL}}" rel="stylesheet">
     <link href="{{"css/horsey.css" | relURL}}" rel="stylesheet">
     {{with .Site.Params.themeStyle}}
@@ -28,8 +32,6 @@
       }
     </style>
 
-    
-
     {{ partial "custom-head.html" . }}
   </head>
   <body class="" data-url="{{ .RelPermalink }}">
@@ -37,7 +39,6 @@
         <section id="body">
         <div id="overlay"></div>
         <div class="padding highlightable">
-        {{if not .IsHome}}
           <div id="top-bar">
             {{ if and (or .IsPage .IsSection) .Site.Params.editURL }}
               {{ $File := .File }}
@@ -47,10 +48,12 @@
               <a class="github-link" href="{{ $Site.Params.editURL }}{{ replace $File.Dir "\\" "/" }}{{ $File.LogicalName }}" target="blank">
                 <i class="fa fa-code-fork"></i>
                 {{T "Edit-this-page"}}
-              </a>
+              </a> 
             </div>
-              {{- end }}
             {{- end -}}
+            {{ else }}
+              <div id="top-github-link">v15.0.00</div> 
+            {{ end }}
 
             <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
                 <span id="sidebar-toggle-span">
@@ -65,7 +68,7 @@
             </div>
             {{ partial "toc.html" . }}
           </div>
-        {{end}}
+     
         {{if .Params.tags }}
           <div id="tags">
             {{ range $index, $tag := .Params.tags }}

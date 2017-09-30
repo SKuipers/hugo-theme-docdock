@@ -1404,6 +1404,7 @@ pre .copy-to-clipboard:hover {
 #sidebar-inner-wrap {
   overflow: hidden;
   border-right: 1px solid #e6e6e6;
+  min-height: 100vh;
 }
 
 #sidebar-inner {
