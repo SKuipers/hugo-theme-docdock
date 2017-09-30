@@ -1,9 +1,7 @@
 // main: theme.scss
 
-
 // == Functions ==
 // Copied from https://css-tricks.com/snippets/sass/power-function/
-
 
 @function pow($number, $exponent) {
   $value: 1;
@@ -21,7 +19,6 @@
   @return $value;
 }
 
-
 // == Fudge Values ==
 //These are all a means of globally tweaking lightness shifting. Use with caution.
 
@@ -36,54 +33,58 @@ $lshift_global_bias: 2;
 $lshift_global_fudge: 0.5;
 
 @function fudge_center($value) {
-    @return ( ( 1 + $lshift_global_fudge ) / ( pow( abs( 2 * $value - 1 ), $lshift_global_bias ) + $lshift_global_fudge ) );
+  @return (( 1 + $lshift_global_fudge ) / ( pow( abs( 2 * $value - 1 ), $lshift_global_bias ) + $lshift_global_fudge ));
 }
 
 @function lshift($reference, $value, $lighten_amount, $darken_amount) {
+  $lshift_internal_lightness: lightness($reference);
 
-    $lshift_internal_lightness: lightness($reference);
+  $lshift_internal_bias: $lshift_global_scale *
+    fudge_center(lightness($value) / 100%);
 
-    $lshift_internal_bias: $lshift_global_scale * fudge_center(lightness($value) / 100%);
-
-    @if $lshift_internal_lightness < 50% {
-        @if abs($lighten_amount * $lshift_internal_bias) > 100 {
-            @return adjust-color($value, $lightness: 100);
-        }@else {
-            @return adjust-color($value, $lightness: $lighten_amount * $lshift_internal_bias);
-        }
-    }@else {
-        @if abs($darken_amount * $lshift_internal_bias) > 100 {
-            @return adjust-color($value, $lightness: -100);
-        }@else {
-            @return adjust-color($value, $lightness: -$darken_amount * $lshift_internal_bias);
-        }
+  @if $lshift_internal_lightness < 50% {
+    @if abs($lighten_amount * $lshift_internal_bias) > 100 {
+      @return adjust-color($value, $lightness: 100);
+    } @else {
+      @return adjust-color($value, $lightness: $lighten_amount * $lshift_internal_bias);
     }
+  } @else {
+    @if abs($darken_amount * $lshift_internal_bias) > 100 {
+      @return adjust-color($value, $lightness: -100);
+    } @else {
+      @return adjust-color($value, $lightness: -$darken_amount * $lshift_internal_bias);
+    }
+  }
 }
 
 $lshift_main_scale: 1;
 
 @function lshift_main($value, $lighten_amount, $darken_amount) {
-    @return lshift($main_back_color, $value, $lighten_amount * $lshift_main_scale, $darken_amount * $lshift_main_scale);
+  @return lshift($main_back_color, $value, $lighten_amount * $lshift_main_scale, $darken_amount * $lshift_main_scale);
 }
 
 $lshift_side_scale: 1;
 
 @function lshift_side($value, $lighten_amount, $darken_amount) {
-    @return lshift($side_back_color, $value, $lighten_amount * $lshift_side_scale, $darken_amount * $lshift_side_scale);
+  @return lshift($side_back_color, $value, $lighten_amount * $lshift_side_scale, $darken_amount * $lshift_side_scale);
 }
 
 // lshift functions take a color, then an amount to lighten by (when reference is
 // dark), then an amount to darken by (when reference is light).
 // main uses main back color as reference, side uses side back color as reference
 
+// RANGES
+// We use these functions to define ranges for various things, like media queries. 
+@function lower-bound($range){
+  @if length($range) <= 0 {
+    @return 0;
+  }
+  @return nth($range,1);
+}
 
-
-
-// == Mixins ==
-
-@mixin transition($input) {
-    -webkit-transition: $input;
-    -moz-transition: $input;
-    -ms-transition: $input;
-    transition: $input;
+@function upper-bound($range) {
+  @if length($range) < 2 {
+    @return 999999999999;
+  }
+  @return nth($range, 2);
 }

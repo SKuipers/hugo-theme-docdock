@@ -1,19 +1,39 @@
+<header id="menu">
+  <a id="site-title" href="{{ .Site.BaseURL }}">
+    <img class="logo" src="/images/gibbon-logo.png">
+    <div class="title">
+      {{ .Site.Title }}<br/>
+      <small>v15.0.00</small>
+    </div>
+  </a>
+
+  <nav class="navbar pull-right">
+    <a class="nav-item nav-item-visible" href="https://gibbonedu.org/">Home</a>
+    <a class="nav-item" href="https://gibbonedu.org/about">About</a>
+    <a class="nav-item" href="https://gibbonedu.org/features">Features</a>
+    <a class="nav-item" href="https://gibbonedu.org/download">Download</a>
+    <a class="nav-item" href="https://gibbonedu.org/extend">Extend</a>
+    <a class="nav-item" href="https://gibbonedu.org/support">Support</a>
+  </nav>
+</header>
+
 <nav id="sidebar" class="{{if $.Site.Params.showVisitedLinks }}showVisitedLinks{{end}}">
 
 {{- $currentNode := . }}
 {{- $showvisitedlinks := .Site.Params.showVisitedLinks -}}
 
-<div class="highlightable">
-  <div id="header-wrapper">
-    <div id="header">
-      {{- partial "logo.html" . }}
-    </div>
-    {{- if not .Site.Params.noSearch}}
-        {{- partial "search.html" . }}
-    {{- end}}
-  </div>
+<div id="header-wrapper">
+  <!-- <div id="header">
+    {{- partial "logo.html" . }}
+  </div> -->
+  {{- if not .Site.Params.noSearch}}
+      {{- partial "search.html" . }}
+  {{- end}}
+</div>
 
-
+<div id="sidebar-inner-wrap">
+<div id="sidebar-inner" class="highlightable">
+  
     <ul class="topics">
         {{- if not .Site.Params.noHomeIcon}}
             <li data-nav-id="{{"/" | relURL}}" class="dd-item">
@@ -43,7 +63,7 @@
         </section>
 
         {{- if $.Site.Params.showVisitedLinks}}
-            <a class="" href="#" data-clear-history-toggle=""><i class="fa  fa-history"></i> {{T "Clear-History"}}</a>
+            <a class="" href="#" data-clear-history-toggle=""><i class="fa fa-history"></i> {{T "Clear-History"}}</a>
         {{- end}}
 
         {{- end}}
@@ -53,6 +73,7 @@
     <section id="footer">
       {{- partial "menu-footer.html" . }}
     </section>
+  </div>
   </div>
 </nav>
 
@@ -71,6 +92,8 @@
       <a href="{{ .RelPermalink}}">
         <span>{{safeHTML .Params.Pre}}{{.Title}}{{safeHTML .Params.Post}}</span>
 
+        {{- if $showvisitedlinks}}<i class="fa fa-check read-icon"></i>{{end}}
+
         {{- $numberOfPages := (add (len .Pages) (len .Sections)) }}
         {{- if ne $numberOfPages 0 }}
           {{- if or (.IsAncestor $currentNode) (.Params.alwaysopen) }}
@@ -79,8 +102,6 @@
             <i class="fa fa-angle-right fa-lg category-icon"></i>
           {{- end}}
         {{- end}}
-
-        {{- if $showvisitedlinks}}<i class="fa fa-circle-thin read-icon"></i>{{end}}
       </a>
       {{- if ne $numberOfPages 0 }}
         <ul>
@@ -115,7 +136,7 @@
       ">
         <a href="{{ .RelPermalink}}">
           <span>{{safeHTML .Params.Pre}}{{.Title}}{{safeHTML .Params.Post}}</span>
-          {{- if $showvisitedlinks}}<i class="fa fa-circle-thin read-icon"></i>{{end}}
+          {{- if $showvisitedlinks}}<i class="fa fa-check read-icon"></i>{{end}}
         </a>
     </li>
      {{- end}}

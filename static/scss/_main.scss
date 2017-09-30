@@ -77,10 +77,6 @@
     }
 }
 
-body {
-    font-size: 16px !important;
-    color: $main_text_color !important;
-}
 
 #body a.highlight, #body a.highlight:hover, #body a.highlight:focus {
     text-decoration: none;
@@ -94,25 +90,17 @@ body {
 }
 
 #body a.highlight:after {
-    @if $option_link_expand == left {
-      margin-left:0; margin-right:auto;
-    } @else if $option_link_expand == center {
-      margin-left:auto; margin-right:auto;
-    } @else if $option_link_expand == right {
-      margin-left:auto; margin-right:0;
-    } @else {
-      margin-left:0; margin-right:auto;
-    }
     display: block;
     content: "";
     height: 1px;
-    width: 0%;
+    margin-top: 2px;
+    opacity: 0;
     background-color: $main_link_hover_color;
-    @include transition(width $time_long_fade ease);
+    //@include transition(opacity $time_long_fade ease);
 }
 
 #body a.highlight:hover:after, #body a.highlight:focus:after {
-    width: 100%;
+    opacity: 1;
 }
 
 .progress {
@@ -130,9 +118,6 @@ body {
     margin-right: 0.5rem !important;
 }
 
-#top-bar {
-    box-shadow: 0 5px 10px rgba(0, 0, 0, $topbar_shadow_opacity);
-}
 
 .btn {
     color: $button_text_color !important;
@@ -156,6 +141,78 @@ body {
     border: 1px solid transparent !important;
     border-radius: 4px !important;
     @include transition(all $time_long_fade !important);
+}
+
+#menu {
+    //@include gradient-wide($primary_gradient_0, $primary_gradient_1, $primary_gradient_2);
+    
+    position: static;
+    //position: static;
+    top: 0;
+    //
+    min-height: $menu-height;
+    //padding: 0.5rem 1rem;
+    
+    width: 100%;
+
+    line-height: $menu-height;
+}
+
+#menu .navbar a {
+    color: $menu_text_color;
+    
+    font-family: Arial,Tahoma,Verdana;
+    font-weight: 700;
+    font-size: 20.25px;
+    font-weight: 700;
+    letter-spacing: -1px;
+    text-shadow: 0px 1px 0px #000000;
+}
+
+#menu .navbar a:hover {
+    color: #333;
+    text-shadow: none;
+}
+
+#menu:before {
+    @include gradient-wide($gradient_1, $gradient_2, $gradient_3, $gradient_4);
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 20rem;
+    z-index: -1;
+}
+
+#site-title {
+    position: fixed;
+    top: 0px;
+    line-height: 1;
+    padding: 0.5rem;
+}
+
+#site-title .title {
+    width: 300px;
+    margin-top: 0.75rem;
+    color: $menu_text_color;
+    font-weight: 300;
+    font-size: 19px;
+    line-height: 1;
+    letter-spacing: -0.2px;
+    text-shadow: 0px 1px 0px #000000;
+}
+
+#site-title .title small {
+    color: $main_text_color;
+    font-size: 13px;
+    text-shadow: none;
+}
+
+#site-title .logo {
+    float: left;
+    width: 60px;
+    margin-right: 0.75rem;
 }
 
 .btn:focus {
@@ -215,59 +272,7 @@ h2:hover .anchor, h3:hover .anchor, h4:hover .anchor, h5:hover .anchor, h6:hover
     visibility:visible;
 }
 
-/* Redfines headers style */
 
-h2, h3, h4, h5, h6 {
-    font-weight: 400;
-    line-height: 1.1;
-}
-
-h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
-    font-weight: inherit;
-}
-
-h2 {
-    font-size: 2.5rem;
-    line-height: 110% !important;
-    margin: 2.5rem 0 1.5rem 0;
-    text-transform: capitalize;
-}
-
-h3 {
-    font-size: 2rem;
-    line-height: 110% !important;
-    margin: 2rem 0 1rem 0;
-}
-
-h4 {
-    font-size: 1.5rem;
-    line-height: 110% !important;
-    margin: 1.5rem 0 0.75rem 0;
-}
-
-h5 {
-    font-size: 1rem;
-    line-height: 110% !important;
-    margin: 1rem 0 0.2rem 0;
-}
-
-h6 {
-    font-size: 0.5rem;
-    line-height: 110% !important;
-    margin: 0.5rem 0 0.2rem 0;
-}
-
-p {
-    margin: 1rem 0;
-}
-
-figcaption h4 {
-    font-weight: 300 !important;
-    opacity: .85;
-    font-size: 1em;
-    text-align: center;
-    margin-top: -1.5em;
-}
 
 .is_stuck{
     position: fixed; top: 0px; width: 1165px;
@@ -342,6 +347,11 @@ b, strong, label, th {
     font-weight: 600;
 }
 
+strong > em {
+    font-style: inherit;
+    text-decoration: underline;
+}
+
 .default-animation, #header #logo-svg, #header #logo-svg path, #sidebar, #sidebar ul, #body, #body .padding, #body .nav {
     @include transition(all $time_long_fade ease);
 }
@@ -371,15 +381,15 @@ textarea:hover, input[type="email"]:hover, input[type="number"]:hover, input[typ
 
 textarea:focus, input[type="email"]:focus, input[type="number"]:focus, input[type="password"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="text"]:focus, input[type="url"]:focus, input[type="color"]:focus, input[type="date"]:focus, input[type="datetime"]:focus, input[type="datetime-local"]:focus, input[type="month"]:focus, input[type="time"]:focus, input[type="week"]:focus, select[multiple=multiple]:focus {
     border-color: $side_back_color;
-    box-shadow: inset 0 1px 3px rgba(0,0,0,.06),0 0 5px rgba(0,169,218,.7)
+    box-shadow: inset 0 1px 3px rgba(0,0,0,.06),0 0 5px rgba(255,255,255,.7)
 }
 
 #header-wrapper {
-    background: $side_back_color;
+    //background: $side_back_color;
     color: $side_text_color;
     text-align: center;
-    border-bottom: 1px solid $side_focus_back_color;
-    padding: 1rem;
+    //border-bottom: 4px solid lighten($side_back_color, 10%);
+    padding: 0 1rem 1rem 1rem;
 }
 
 #header a {
@@ -395,23 +405,28 @@ textarea:focus, input[type="email"]:focus, input[type="number"]:focus, input[typ
     fill: #fff;
 }
 
+#header .logo img {
+    width: 120px;
+}
+
 .searchbox {
     margin-top: 1rem;
     position: relative;
-    border: 1px solid $side_highlight_color;
-    background: $side_focus_back_color;
+    border: 1px solid $search_border_color;
+    background: $search_back_color;
     border-radius: 4px;
+    z-index: 100;
 }
 
 .searchbox label {
-    color: rgba($side_focus_text_color, 0.8);
+    color: rgba($side_back_color, 0.8);
     position: absolute;
     left: 10px;
     top: 3px;
 }
 
 .searchbox span {
-    color: rgba($side_focus_text_color, 0.6);
+    color: rgba($side_back_color, 0.6);
     position: absolute;
     right: 10px;
     top: 3px;
@@ -420,13 +435,13 @@ textarea:focus, input[type="email"]:focus, input[type="number"]:focus, input[typ
 }
 
 .searchbox span:hover {
-    color: rgba($side_focus_text_color, 0.9);
+    color: rgba($side_back_color, 0.9);
     @include transition(color $time_short_fade ease);
 }
 
 .searchbox input {
     display: inline-block;
-    color: $side_focus_text_color;
+    color: $side_back_color;
     width: 100%;
     height: 30px;
     background: transparent;
@@ -436,20 +451,11 @@ textarea:focus, input[type="email"]:focus, input[type="number"]:focus, input[typ
     font-weight: 300;
 }
 
-.searchbox input::-webkit-input-placeholder {
-    color: rgba($side_focus_text_color, 0.6);
-}
-
-.searchbox input::-moz-placeholder {
-    color: rgba($side_focus_text_color, 0.6);
-}
-
-.searchbox input:-moz-placeholder {
-    color: rgba($side_focus_text_color, 0.6);
-}
-
+.searchbox input::-webkit-input-placeholder,
+.searchbox input::-moz-placeholder,
+.searchbox input:-moz-placeholder,
 .searchbox input:-ms-input-placeholder {
-    color: rgba($side_focus_text_color, 0.6);
+    color: rgba($side_back_color, 0.6);
 }
 
 // sidebar
@@ -460,6 +466,7 @@ textarea:focus, input[type="email"]:focus, input[type="number"]:focus, input[typ
 }
 
 #body {
+    background: $main_back_color;
     position: relative;
     margin-left: 300px;
     min-height: 100%;
@@ -555,7 +562,7 @@ textarea:focus, input[type="email"]:focus, input[type="number"]:focus, input[typ
 }
 
 #chapter h3 {
-    font-family: "Lato", "Work Sans", "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
+    font-family: "Work Sans", "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
     font-weight: 300;
     text-align: center;
 }
@@ -580,33 +587,7 @@ textarea:focus, input[type="email"]:focus, input[type="number"]:focus, input[typ
     margin: 0;
 }
 
-body {
-    font-family: "Lato", "Work Sans", "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
-    font-weight: normal;
-    line-height: 1.6;
-    font-size: 18px !important;
 
-    strong {
-        font-family: "Lato Bold", "Work Sans", "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
-        font-weight: bold;
-    }
-}
-
-h2, h3, h4, h5, h6 {
-    font-family: "Lato", "Work Sans Bold", "Helvetica Bold", "Tahoma Bold", "Geneva Bold", "Arial Bold", sans-serif;
-    text-rendering: optimizeLegibility;
-    color: $main_other_text_color;
-    font-weight: 400;
-    letter-spacing: -1px;
-}
-
-h1 {
-    font-family: "Novacento Sans Wide", "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
-    text-align: center;
-    text-transform: uppercase;
-    color: $main_title_text_color;
-    font-weight: 200;
-}
 
 blockquote {
     border-left: 10px solid $main_block_quote_border_color;
@@ -1015,7 +996,7 @@ td {
 
 .highlightable {
     padding: 0rem 0 0rem;
-    overflow: auto;
+    //overflow: auto;
     position: relative;
     height: 100%;
 }
@@ -1118,9 +1099,11 @@ td {
 }
 
 #top-bar {
+    position: sticky;
+    top: -1px;
     background: $topbar_back_color;
     border-radius: 2px;
-    margin: 0rem -1rem 2rem;
+    margin: 0rem -1rem 2rem 0rem;
     padding: 0 1rem;
     height: 0;
     min-height: 3rem;

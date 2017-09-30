@@ -1,13 +1,36 @@
 // main: theme.scss
 
+$primary_color:  #794d95;
+
+$gradient_1: #b171ac; //c07bb2
+$gradient_2: #c07bb2; // #a268a6; 
+$gradient_3: #a268a6;
+$gradient_4: #70478B;
+
+// $gradient_1: #d286ba; 
+// $gradient_2: #b171ac; 
+// $gradient_3: #794d95;
+
+// $gradient_1: #a66aa7; 
+// $gradient_2: #965fa1; 
+// $gradient_3: #794d95; // #835499;
+
 // == Side ==
-$side_back_color: #2053AB;
-$side_text_color: #fff;
+// $side_back_color: $primary_gradient_1;
+// $side_text_color: #ffffff;
+$side_back_color: #ffffff;
+$side_text_color: #323232;
+
+// == Menu ==
+$menu_text_color: #ffffff;
 
 // == Main ==
-$main_back_color: #fff;
+$main_back_color: #ffffff;
 $main_text_color: #323232;
 
+// == Links ==
+$main_link_color: #00bdf3;
+$main_link_hover_color: #0082a7;
 
 // == Code ==
 $main_code_inline_back_color: #FFF7DD;

@@ -1,0 +1,139 @@
+// main: theme.scss
+
+// == Mixins ==
+
+// Gradient
+// ---------------------------------------------
+@mixin gradient($color1, $color2) {
+  background: $color1;                                    // Fallback
+  background: -webkit-linear-gradient($color1, $color2);  // For Safari 5.1 to 6.0
+  background: -o-linear-gradient($color1, $color2);       // For Opera 11.1 to 12.0
+  background: -moz-linear-gradient($color1, $color2);     // For Firefox 3.6 to 15
+  background: linear-gradient($color1, $color2);          // Standard syntax
+}
+
+@mixin gradient-wide($c1, $c2, $c3, $c4) {
+    background: $c2;                                                                // Fallback
+    background: -webkit-linear-gradient(left, $c1 0%, $c2 30%, $c3 60%, $c4 100%);  // For Safari 5.1 to 6.0
+    background: -o-linear-gradient(left, $c1 0%, $c2 30%, $c3 60%, $c4 100%);       // For Opera 11.1 to 12.0
+    background: -moz-linear-gradient(left, $c1 0%, $c2 30%, $c3 60%, $c4 100%);     // For Firefox 3.6 to 15
+    background: linear-gradient(to right,$c1 0%, $c2 30%, $c3 60%, $c4 100%);       // Standard syntax
+  }
+
+// Background Size
+// ---------------------------------------------
+@mixin background-size($size) {
+  -webkit-background-size: $size;
+  -moz-background-size   : $size;
+  -o-background-size     : $size;
+  background-size        : $size;
+}
+
+// Box Sizing
+// ---------------------------------------------
+@mixin box-sizing($boxmodel) {
+  -webkit-box-sizing: $boxmodel;
+  -moz-box-sizing   : $boxmodel;
+  box-sizing        : $boxmodel;
+}
+
+// Border Radius
+// ---------------------------------------------
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius   : $radius;
+  border-radius        : $radius;
+}
+
+// Drop Shadow
+// ---------------------------------------------
+@mixin box-shadow($shadow...) {
+  -webkit-box-shadow: $shadow;
+  -moz-box-shadow   : $shadow;
+  box-shadow        : $shadow;
+}
+
+// Transitions
+// ---------------------------------------------
+@mixin transition($transition...) {
+  -webkit-transition: $transition;
+  -moz-transition   : $transition;
+  -o-transition     : $transition;
+  transition        : $transition;
+}
+@mixin transition-delay($transition-delay) {
+  -webkit-transition-delay: $transition-delay;
+  -moz-transition-delay   : $transition-delay;
+  -o-transition-delay     : $transition-delay;
+  transition-delay        : $transition-delay;
+}
+@mixin transition-duration($transition-duration) {
+  -webkit-transition-duration: $transition-duration;
+  -moz-transition-duration   : $transition-duration;
+  -o-transition-duration     : $transition-duration;
+  transition-duration        : $transition-duration;
+}
+
+// Text Columns
+// ---------------------------------------------
+@mixin columns($column-count, $column-width: auto, $column-gap: $column-gutter) {
+  -webkit-column-count: $column-count;
+     -moz-column-count: $column-count;
+          column-count: $column-count;
+  -webkit-column-width: $column-width;
+     -moz-column-width: $column-width;
+          column-width: $column-width;
+  -webkit-column-gap: $column-gutter;
+     -moz-column-gap: $column-gutter;
+          column-gap: $column-gutter;
+}
+
+// Responsive
+// ---------------------------------------------
+
+@mixin respond($type, $value: 0) {
+  
+  @if $type == small-only {
+    @media #{$small-only} { @content; }
+  }
+
+  @else if $type == small-up {
+    @media #{$small-up} { @content; }
+  }
+
+  @else if $type == medium-only {
+    @media #{$medium-only} { @content; }
+  }
+
+  @else if $type == medium-up {
+    @media #{$medium-up} { @content; }
+  }
+
+  @else if $type == large-only {
+    @media #{$large-only} { @content; }
+  }
+
+  @else if $type == large-up {
+    @media #{$large-up} { @content; }
+  }
+
+  @else if $type == xlarge-only {
+    @media #{$xlarge-only} { @content; }
+  }
+
+  @else if $type == xlarge-up {
+    @media #{$xlarge-up} { @content; }
+  }
+
+  @else if $type == retina {
+    @media #{$retina-only} { @content; }
+  }
+
+  @else if $type == tiny-only {
+    @media #{$tiny-only} { @content; }
+  }
+
+  @else {
+    @media ($type: $value) { @content; }
+  }
+}

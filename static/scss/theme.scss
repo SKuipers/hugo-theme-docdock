@@ -7,10 +7,13 @@
 
 @import "functions";
 @import "colours";
-@import "fonts";
 @import "variables";
+@import "mixins";
+@import "fonts";
+@import "typography";
 @import "main";
 @import "sidebar";
 @import "shortcodes";
+@import "utility";
 @import "responsive";
 @import "print";
