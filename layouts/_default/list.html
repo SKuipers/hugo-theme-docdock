@@ -11,8 +11,30 @@
 	    {{ else }}
 	        last updated {{ $.Date.Format "January 2, 2006" }}
 	    {{ end }}
-    {{ end }}
+	{{ end }}
+	
+	<p>
+	<i class="fa fa-heart text-primary"></i> 
+	Help expand the docs! Add <input id="github-add-name" type="text" value="Your Content" size=18> as a 
+	
+	{{ $File := .File }}
+	{{ $Site := .Site }}
+	
+	{{with $File.Path }}
+	  <button class="github-link github-add" data-url="{{ $Site.Params.newURL }}{{ replace $File.Dir "\\" "/" }}add?filename=TEMPLATE_FILE.md&value={{ partial "template-page" | safeHTMLAttr }}&message=Add page TEMPLATE_NAME under {{ $.Title }}&description=Briefly describe your new page">
+		<i class="fa fa-file-o"></i>
+		New Page
+	  </button> 
+	 or 
+	  <button class="github-link github-add" data-url="{{ $Site.Params.newURL }}{{ replace $File.Dir "\\" "/" }}TEMPLATE_FILE/add?filename=_index.md&value={{ partial "template-section" | safeHTMLAttr }}&message=Add section TEMPLATE_NAME under {{ $.Title }}&description=Briefly describe your new section">
+		<i class="fa fa-folder-open"></i>
+		New Section
+	  </button> 
+	{{- end }}
+	</p>
+	
 </footer>
+
 
 {{if not .Content }}
 	{{ $paginator := .Paginator }}

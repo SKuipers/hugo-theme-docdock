@@ -6,8 +6,8 @@
     {{ .Hugo.Generator }}
     {{ partial "meta.html" . }}
     <title>{{ .Title }} :: {{ .Site.Title }}</title>
-    <link rel="shortcut icon" href="{{"images/favicon.png" | relURL}}" type="image/x-icon" />
-    <link href="{{"css/nucleus.css" | relURL}}" rel="stylesheet">
+    <link rel="shortcut icon" href="{{"images/favicon.ico" | relURL}}" type="image/x-icon" />
+    <!-- <link href="{{"css/nucleus.css" | relURL}}" rel="stylesheet"> -->
     <link href="{{"css/font-awesome.min.css" | relURL}}" rel="stylesheet">
     {{with .Site.Params.highlightStyle}}
     <link href="{{(printf "css/%s.css" .) | relURL}}" rel="stylesheet">
@@ -39,6 +39,7 @@
         <section id="body">
         <div id="overlay"></div>
         <div class="padding highlightable">
+        {{if not .IsHome}}
           <div id="top-bar">
             {{ if and (or .IsPage .IsSection) .Site.Params.editURL }}
               {{ $File := .File }}
@@ -50,10 +51,8 @@
                 {{T "Edit-this-page"}}
               </a> 
             </div>
+            {{- end }}
             {{- end -}}
-            {{ else }}
-              <div id="top-github-link">v15.0.00</div> 
-            {{ end }}
 
             <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
                 <span id="sidebar-toggle-span">
@@ -68,6 +67,7 @@
             </div>
             {{ partial "toc.html" . }}
           </div>
+        {{ end }}
      
         {{if .Params.tags }}
           <div id="tags">

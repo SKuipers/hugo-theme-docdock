@@ -3,18 +3,19 @@
     <img class="logo" src="/images/gibbon-logo.png">
     <div class="title">
       {{ .Site.Title }}<br/>
-      <small>v15.0.00</small>
+      <small>{{ .Site.Params.version }}</small>
     </div>
   </a>
 
+  {{ with .Site.Menus.links }}
   <nav class="navbar pull-right">
-    <a class="nav-item nav-item-visible" href="https://gibbonedu.org/">Home</a>
-    <a class="nav-item" href="https://gibbonedu.org/about">About</a>
-    <a class="nav-item" href="https://gibbonedu.org/features">Features</a>
-    <a class="nav-item" href="https://gibbonedu.org/download">Download</a>
-    <a class="nav-item" href="https://gibbonedu.org/extend">Extend</a>
-    <a class="nav-item" href="https://gibbonedu.org/support">Support</a>
+    {{- range sort . "Weight"}}
+    <a class="nav-item {{ if eq .Identifier "primary" }}nav-item-primary{{ end }}" href="{{.URL}}">{{ safeHTML .Name }}</a>
+
+    {{- end}}
   </nav>
+  {{ end }}
+
 </header>
 
 <nav id="sidebar" class="{{if $.Site.Params.showVisitedLinks }}showVisitedLinks{{end}}">
@@ -112,7 +113,7 @@
           {{- $pages := (.Scratch.Get "pages") }}
 
         {{- if eq .Site.Params.ordersectionsby "title"}}
-          {{- range $pages.ByTitle }}
+          {{- range $pages.ByLinkTitle }}
             {{- if and .Params.hidden (not $.showhidden) }}
             {{- else}}
             {{- template "section-tree-nav" dict "sect" . "currentnode" $currentNode "showvisitedlinks" $showvisitedlinks }}
@@ -135,7 +136,7 @@
      {{- if eq .UniqueID $currentNode.UniqueID}} active{{end -}}
       ">
         <a href="{{ .RelPermalink}}">
-          <span>{{safeHTML .Params.Pre}}{{.Title}}{{safeHTML .Params.Post}}</span>
+          <span>{{safeHTML .Params.Pre}}{{.LinkTitle}}{{safeHTML .Params.Post}}</span>
           {{- if $showvisitedlinks}}<i class="fa fa-check read-icon"></i>{{end}}
         </a>
     </li>

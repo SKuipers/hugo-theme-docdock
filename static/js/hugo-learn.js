@@ -65,7 +65,7 @@ jQuery(document).ready(function () {
         var url = document.location.origin + document.location.pathname;
         var link = url + "#" + element[0].id;
         return " <span class='anchor' data-clipboard-text='" + link + "'>" +
-            "<i class='fa fa-link fa-lg'></i>" +
+            "<i class='fa fa-link'></i>" +
             "</span>";
     });
 
@@ -78,4 +78,11 @@ jQuery(document).ready(function () {
         $(e.trigger).attr('aria-label', 'Link copied to clipboard!').addClass('tooltipped tooltipped-s');
     });
 
+    // Pre-populate Add Page / Add Section links for GitHub
+    $('.github-add').click(function() {
+        var url = $(this).data('url');
+        url = url.replace(/TEMPLATE_FILE/g, $('#github-add-name').val().replace(' ', '-').toLowerCase());
+        url = url.replace(/TEMPLATE_NAME/g, $('#github-add-name').val());
+        window.open(url);
+    });
 });
