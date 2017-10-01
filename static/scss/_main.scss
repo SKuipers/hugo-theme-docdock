@@ -285,7 +285,8 @@ h2:hover .anchor, h3:hover .anchor, h4:hover .anchor, h5:hover .anchor, h6:hover
 }
 
 .footline {
-	//border-top: 1px dashed $side_focus_back_color;
+    //border-top: 1px dashed $side_focus_back_color;
+    position: relative;
     font-size: 13px;
     background: $side_focus_back_color;
     text-align: center; 
@@ -304,6 +305,13 @@ h2:hover .anchor, h3:hover .anchor, h4:hover .anchor, h5:hover .anchor, h6:hover
             font-weight: bold;
         }
     }
+}
+
+#footer-logo {
+    position: absolute;
+    top: -0.5rem;
+    right: 1rem;
+    margin: 0 !important;
 }
 
 #top-github-link, #body #breadcrumbs {
@@ -549,8 +557,8 @@ button {
 }
 
 #body #navigation {
+    margin-top: 2rem;
     position: relative;
-    margin-right: 0 !important;
     width: 100%;
     display: table;
     border-top: 1px solid #e6e6e6;

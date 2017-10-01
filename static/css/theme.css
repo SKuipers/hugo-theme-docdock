@@ -563,6 +563,7 @@ h2:hover .anchor, h3:hover .anchor, h4:hover .anchor, h5:hover .anchor, h6:hover
 }
 
 .footline {
+  position: relative;
   font-size: 13px;
   background: #f6f6f6;
   text-align: center;
@@ -577,6 +578,13 @@ h2:hover .anchor, h3:hover .anchor, h4:hover .anchor, h5:hover .anchor, h6:hover
 .footline .credits-text a {
   color: #794d95;
   font-weight: bold;
+}
+
+#footer-logo {
+  position: absolute;
+  top: -0.5rem;
+  right: 1rem;
+  margin: 0 !important;
 }
 
 #top-github-link, #body #breadcrumbs {
@@ -822,8 +830,8 @@ button {
 }
 
 #body #navigation {
+  margin-top: 2rem;
   position: relative;
-  margin-right: 0 !important;
   width: 100%;
   display: table;
   border-top: 1px solid #e6e6e6;
@@ -1844,7 +1852,6 @@ pre .copy-to-clipboard:hover {
 }
 @media only all and (max-width: 59.938em) {
   #body .padding {
-    position: static;
     padding: 15px 3rem;
   }
 }
