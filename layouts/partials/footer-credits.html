@@ -1,0 +1,27 @@
+<footer class="footline padding" >
+    <a href="{{ $.Permalink }}">“{{ $.Title }}”</a> was
+
+    {{ with .Params.AuthorName }}
+        written by <a href="{{ $.Params.AuthorURL | title }}">{{ . }}</a>
+    {{ end }}
+    and
+    {{ with $.GitInfo }}
+        last updated {{ .AuthorDate.Format "January 2, 2006" }}: <a style="color: #666;font-size:70%;" href="{{$.Site.Params.ghrepo}}commit/{{ .Hash }}" title=" {{ .AuthorName }} committed: {{ .Subject }}"><i class='fa fa-sm fa-code'></i> {{ .AbbreviatedHash }}</a>
+    {{ else }}
+        last updated {{ $.Date.Format "January 2, 2006" }}
+    {{ end }}
+
+    <br/>
+        Caught a mistake or want to contribute to the documentation? <a class="github-link" href="{{ $.Site.Params.editURL }}{{ replace $.File.Dir "\\" "/" }}{{ $.File.LogicalName }}" target="blank">
+            <i class="fa fa-github"></i> Edit this page on Github!</a>
+
+
+    <div class="credits-text">
+        © 2011 <a href="http://rossparker.org">Ross Parker</a> |
+        Created under the 
+        <a target="_blank" href="https://www.gnu.org/licenses/gpl.html">GNU GPL</a> at 
+        <a target="_blank" href="http://www.ichk.edu.hk">ICHK</a> | 
+        <a target="_blank" href="https://gibbonedu.org/about/#ourTeam">Credits</a>	|
+        <a href="https://gibbonedu.org/license">License</a>  				  
+    </div>
+</footer>

@@ -563,9 +563,20 @@ h2:hover .anchor, h3:hover .anchor, h4:hover .anchor, h5:hover .anchor, h6:hover
 }
 
 .footline {
-  margin-top: 3rem;
-  border-top: 1px dashed #f6f6f6;
-  font-size: smaller;
+  font-size: 13px;
+  background: #f6f6f6;
+  text-align: center;
+}
+.footline a {
+  color: #0082a7;
+}
+.footline .credits-text {
+  margin-top: 2rem;
+  font-size: 11px;
+}
+.footline .credits-text a {
+  color: #794d95;
+  font-weight: bold;
 }
 
 #top-github-link, #body #breadcrumbs {
@@ -797,37 +808,59 @@ button {
 }
 
 #body .nav {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  width: 4rem;
-  font-size: 50px;
-  height: 100%;
-  cursor: pointer;
-  display: table;
-  text-align: center;
+  display: table-cell;
+  position: static;
+  top: auto;
+  width: 50%;
+  height: 1rem;
+  line-height: 1rem;
+  padding: 1rem 2rem 2.25rem;
 }
 
 #body .nav > i {
-  display: table-cell;
-  vertical-align: middle;
-  text-align: center;
+  display: inline-block;
 }
 
-#body .nav:hover {
-  background: #f7f7f7;
+#body #navigation {
+  position: relative;
+  margin-right: 0 !important;
+  width: 100%;
+  display: table;
+  border-top: 1px solid #e6e6e6;
+  border-bottom: 1px solid #e6e6e6;
 }
 
-#body .nav.nav-pref {
-  left: 0;
+#body .nav-icon {
+  position: relative;
+  top: 1.5rem;
+}
+
+#body .nav.nav-prev {
+  text-align: left;
+  padding-left: 4rem;
+}
+#body .nav.nav-prev .nav-icon {
+  left: -2.5rem;
 }
 
 #body .nav.nav-next {
-  right: 0;
+  text-align: right;
+  padding-right: 4rem;
+}
+#body .nav.nav-next .nav-icon {
+  right: -2.5rem;
 }
 
-#body-inner {
-  margin-bottom: 5rem;
+#body .nav-subtitle {
+  font-weight: 700;
+  letter-spacing: .35em;
+  text-transform: uppercase;
+  font-size: 10px;
+  line-height: 16px;
+  color: #CCC;
+  display: block;
+  line-height: 1;
+  margin-bottom: 0.5rem;
 }
 
 #chapter {
@@ -1818,30 +1851,6 @@ pre .copy-to-clipboard:hover {
 @media only all and (max-width: 47.938em) {
   #body .padding {
     padding: 5px 1rem;
-  }
-}
-@media only all and (max-width: 59.938em) {
-  #body #navigation {
-    position: static;
-    margin-right: 0 !important;
-    width: 100%;
-    display: table;
-  }
-}
-@media only all and (max-width: 59.938em) {
-  #body .nav {
-    display: table-cell;
-    position: static;
-    top: auto;
-    width: 50%;
-    text-align: center;
-    height: 100px;
-    line-height: 100px;
-    padding-top: 0;
-  }
-
-  #body .nav > i {
-    display: inline-block;
   }
 }
 @media only all and (max-width: 47.938em) {

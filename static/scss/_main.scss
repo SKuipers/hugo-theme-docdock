@@ -285,9 +285,25 @@ h2:hover .anchor, h3:hover .anchor, h4:hover .anchor, h5:hover .anchor, h6:hover
 }
 
 .footline {
-	margin-top:3rem;
-	border-top: 1px dashed $side_focus_back_color;
-	font-size:smaller;
+	//border-top: 1px dashed $side_focus_back_color;
+    font-size: 13px;
+    background: $side_focus_back_color;
+    text-align: center; 
+
+    a {
+        color: darken($main_link_color, 15%);
+    }
+
+    .credits-text {
+        margin-top: 2rem;
+        
+        font-size: 11px;
+
+        a {
+            color: $primary_color;
+            font-weight: bold;
+        }
+    }
 }
 
 #top-github-link, #body #breadcrumbs {
@@ -320,9 +336,9 @@ body #chapter h1 {
     font-size: 3.5rem;
 }
 
-// responsive
 
-// responsive
+
+
 
 a {
     color: $main_link_color;
@@ -509,51 +525,71 @@ button {
     padding: 1rem 4rem;
 }
 
-// responsive
 
-// responsive
+
+
 
 #body h1 + hr {
     margin-top: -1.7rem;
     margin-bottom: 3rem;
 }
 
-// responsive
 
 #body .nav {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    width: 4rem;
-    font-size: 50px;
-    height: 100%;
-    cursor: pointer;
-    display: table;
-    text-align: center;
-}
-
-#body .nav > i {
     display: table-cell;
-    vertical-align: middle;
-    text-align: center;
+    position: static;
+    top: auto;
+    width: 50%;
+    height: 1rem;
+    line-height: 1rem;
+    padding: 1rem 2rem 2.25rem;
+}
+#body .nav > i {
+    display: inline-block;
 }
 
-// responsive
-
-#body .nav:hover {
-    background: $main_shadow_color;
+#body #navigation {
+    position: relative;
+    margin-right: 0 !important;
+    width: 100%;
+    display: table;
+    border-top: 1px solid #e6e6e6;
+    border-bottom: 1px solid #e6e6e6;
 }
 
-#body .nav.nav-pref {
-    left: 0;
+#body .nav-icon {
+    position: relative;
+    top: 1.5rem;
+}
+
+#body .nav.nav-prev {
+    text-align: left;
+    padding-left: 4rem;
+
+    .nav-icon {
+        left: -2.5rem
+    }
 }
 
 #body .nav.nav-next {
-    right: 0;
+    text-align: right;
+    padding-right: 4rem;
+
+    .nav-icon {
+        right: -2.5rem;
+    }
 }
 
-#body-inner {
-    margin-bottom: 5rem;
+#body .nav-subtitle {
+    font-weight: 700;
+    letter-spacing: .35em;
+    text-transform: uppercase;
+    font-size: 10px;
+    line-height: 16px;
+    color: #CCC;
+    display: block;
+    line-height: 1;
+    margin-bottom: 0.5rem;
 }
 
 #chapter {
@@ -832,19 +868,19 @@ td {
     width: 50%;
 }
 
-// responsive
+
 
 .three-column-bullet {
     width: 33.33333%;
 }
 
-// responsive
+
 
 .four-column-bullet {
     width: 25%;
 }
 
-// responsive
+
 
 .bullet-icon {
     float: left;
@@ -1146,9 +1182,9 @@ td {
     padding: 0 0.1rem;
 }
 
-// responsive
 
-// responsive
+
+
 
 .copy-to-clipboard {
     display: inline-block;
