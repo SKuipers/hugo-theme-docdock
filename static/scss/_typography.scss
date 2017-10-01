@@ -1,82 +1,136 @@
 body {
-    font-family: "Work Sans", "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
-    font-weight: 300;
-    line-height: 1.6;
-    font-size: 18px;
-    color: $main_text_color;
+  font-family: "Work Sans", "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
+  font-weight: 300;
+  line-height: 1.6;
+  font-size: 18px;
+  color: $main_text_color;
 
-    strong {
-        font-family: "Lato Bold", "Work Sans", "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
-        font-weight: bold;
-    }
+  strong {
+    font-family: "Lato Bold", "Work Sans", "Helvetica", "Tahoma", "Geneva",
+      "Arial", sans-serif;
+    font-weight: bold;
+  }
 }
 
 h1 {
-    font-family: "Novacento Sans Wide", "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
-    text-align: center;
-    text-transform: uppercase;
-    color: $main_title_text_color;
-    font-weight: 200;
+  font-family: "Novacento Sans Wide", "Helvetica", "Tahoma", "Geneva", "Arial",
+    sans-serif;
+  text-align: center;
+  text-transform: uppercase;
+  color: $main_title_text_color;
+  font-weight: 200;
+  font-size: 3.25rem;
 }
 
-h2, h3, h4, h5, h6 {
-    font-family: "Work Sans", "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
-    text-rendering: optimizeLegibility;
-    color: $main_other_text_color;
-    font-weight: 400;
-    letter-spacing: -1px;
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Work Sans", "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
+  text-rendering: optimizeLegibility;
+  color: $main_other_text_color;
+  font-weight: 400;
+  letter-spacing: -1px;
 }
 
 /* Redfines headers style */
 
-h2, h3, h4, h5, h6 {
-    font-weight: 400;
-    line-height: 1.1;
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 400;
+  line-height: 1.1;
 }
 
-h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
-    font-weight: inherit;
+h1 a,
+h2 a,
+h3 a,
+h4 a,
+h5 a,
+h6 a {
+  font-weight: inherit;
 }
 
 h2 {
-    font-size: 2.5rem;
-    line-height: 110% !important;
-    margin: 2.5rem 0 1.5rem 0;
-    text-transform: capitalize;
+  font-size: 2.5rem;
+  line-height: 110% !important;
+  margin: 2.5rem 0 1.5rem 0;
+  text-transform: capitalize;
 }
 
 h3 {
-    font-size: 2rem;
-    line-height: 110% !important;
-    margin: 2rem 0 1rem 0;
+  font-size: 2rem;
+  line-height: 110% !important;
+  margin: 2rem 0 1rem 0;
 }
 
 h4 {
-    font-size: 1.5rem;
-    line-height: 110% !important;
-    margin: 1.5rem 0 0.75rem 0;
+  font-size: 1.5rem;
+  line-height: 110% !important;
+  margin: 1.5rem 0 0.75rem 0;
 }
 
 h5 {
-    font-size: 1rem;
-    line-height: 110% !important;
-    margin: 1rem 0 0.2rem 0;
+  font-size: 1rem;
+  line-height: 110% !important;
+  margin: 1rem 0 0.2rem 0;
 }
 
 h6 {
-    font-size: 0.5rem;
-    line-height: 110% !important;
-    margin: 0.5rem 0 0.2rem 0;
+  font-size: 0.5rem;
+  line-height: 110% !important;
+  margin: 0.5rem 0 0.2rem 0;
 }
 
 p {
-    margin: 1rem 0;
+  margin: 1rem 0;
+}
+
+hr {
+  height: 0;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  margin: 1.7rem 0;
 }
 
 figcaption h4 {
-    font-weight: 300 !important;
-    opacity: .85;
-    font-size: 1em;
-    text-align: center;
-    margin-top: -1.5em;
+  font-weight: 300 !important;
+  opacity: 0.85;
+  font-size: 1em;
+  text-align: center;
+  margin-top: -1.5em;
+}
+
+a {
+  background: transparent;
+  text-decoration: none;
+}
+
+a:active,
+a:hover {
+  outline: 0;
+}
+
+ul,
+ol {
+  margin-top: 1.7rem;
+  margin-bottom: 1.7rem;
+  padding-left: 2.5rem;
+}
+ul ul,
+ul ol,
+ol ul,
+ol ol {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+button,input,optgroup,select,textarea {
+    color:inherit;
+    font:inherit;
+    margin:0
 }

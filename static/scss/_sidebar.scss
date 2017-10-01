@@ -21,11 +21,13 @@
 		padding: 0 0.8rem;
 	}
 
-	.nav-item-visible {
-		display: inline-block;
+	@include respond(25em) {
+		.nav-item-primary {
+			display: inline-block;
+		}
 	}
 
-	@include respond(large-up) {
+	@include respond(60em) {
 		.nav-item {
 			display: inline-block;
 		}
@@ -35,7 +37,7 @@
 #sidebar-inner-wrap {
 	overflow: hidden;
 	border-right: 1px solid #e6e6e6;
-	min-height: 100vh;
+	height: 100%;
 }
 
 #sidebar-inner {
@@ -76,7 +78,8 @@
 	}
 
 	hr {
-	    border-bottom: 1px solid #2a232f;
+		border-bottom: 1px solid #d7d7d7;
+		margin: 1rem 0;
 	}
 
 	a.padding {
@@ -250,11 +253,11 @@
 		}
 
 		li a span {
+			display: block;
+			width: 100%;
 		    text-overflow: ellipsis;
 		    overflow: hidden;
 		    white-space: nowrap;
-		    // display: block;
-		    // width: calc(100% - 20px);
 		}
 
 		li > a {

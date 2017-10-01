@@ -91,49 +91,27 @@
 // Responsive
 // ---------------------------------------------
 
-@mixin respond($type, $value: 0) {
+@mixin respond($min: 0, $max: 0) {
+  $type: type-of($min);
   
-  @if $type == small-only {
-    @media #{$small-only} { @content; }
+  @if $type == string {
+    @media ($min) { 
+      @content;
+    }
   }
-
-  @else if $type == small-up {
-    @media #{$small-up} { @content; }
-  }
-
-  @else if $type == medium-only {
-    @media #{$medium-only} { @content; }
-  }
-
-  @else if $type == medium-up {
-    @media #{$medium-up} { @content; }
-  }
-
-  @else if $type == large-only {
-    @media #{$large-only} { @content; }
-  }
-
-  @else if $type == large-up {
-    @media #{$large-up} { @content; }
-  }
-
-  @else if $type == xlarge-only {
-    @media #{$xlarge-only} { @content; }
-  }
-
-  @else if $type == xlarge-up {
-    @media #{$xlarge-up} { @content; }
-  }
-
-  @else if $type == retina {
-    @media #{$retina-only} { @content; }
-  }
-
-  @else if $type == tiny-only {
-    @media #{$tiny-only} { @content; }
-  }
-
-  @else {
-    @media ($type: $value) { @content; }
+  @else if $type == number {
+    $query: "all" !default;
+    @if $min != 0 and $max != 0 { 
+      $query: "(min-width: #{$min}) and (max-width: #{$max})"; 
+    }
+    @else if $min != 0 and $max == 0 { 
+      $query: "(min-width: #{$min})"; 
+    }
+    @else if $min == 0 and $max != 0 { 
+      $query: "(max-width: #{$max})"; 
+    }
+    @media #{$query} { 
+      @content;
+    }
   }
 }

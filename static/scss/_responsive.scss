@@ -18,6 +18,10 @@
     #sidebar-toggle-span {
         display: inline;
     }
+
+    body.sidebar-hidden #sidebar-inner {
+        margin-right: 0px;
+    }
 }
 
 
