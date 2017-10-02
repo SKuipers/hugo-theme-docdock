@@ -61,3 +61,13 @@ img {
   border: 0;
   max-width: 100%;
 }
+
+audio,
+canvas,
+progress,
+video,
+iframe {
+  display: inline-block;
+  vertical-align: baseline;
+  max-width: 100%;
+}

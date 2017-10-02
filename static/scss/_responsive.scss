@@ -27,21 +27,21 @@
 
 
 @media only all and (max-width: 59.938em) {
-    #body .padding {
+    #main .padding {
         //position: static;
         padding: 15px 3rem;
     }
 }
 
 @media only all and (max-width: 47.938em) {
-    #body .padding {
+    #main .padding {
         padding: 5px 1rem;
     }
 }
 
 
 // @media only all and (max-width: 59.938em) {
-//     #body #navigation {
+//     #main #navigation {
 //         position: static;
 //         margin-right: 0 !important;
 //         width: 100%;
@@ -51,7 +51,7 @@
 
 
 // @media only all and (max-width: 59.938em) {
-//     #body .nav {
+//     #main .nav {
 //         display: table-cell;
 //         position: static;
 //         top: auto;
@@ -61,7 +61,7 @@
 //         line-height: 100px;
 //         padding-top: 0;
 //     }
-//     #body .nav > i {
+//     #main .nav > i {
 //         display: inline-block;
 //     }
 // }
@@ -91,7 +91,7 @@
     #sidebar {
         width: 230px;
     }
-    #body {
+    #main {
         margin-left: 230px;
     }
 }
@@ -101,7 +101,7 @@
         width: 230px;
         left: -230px;
     }
-    #body {
+    #main {
         margin-left: 0;
         width: 100%;
     }
@@ -111,7 +111,7 @@
     .sidebar-hidden #sidebar {
         left: 0;
     }
-    .sidebar-hidden #body {
+    .sidebar-hidden #main {
         margin-left: 230px;
         overflow: hidden;
     }
