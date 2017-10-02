@@ -155,7 +155,7 @@ jQuery(document).ready(function() {
         $(document.body).removeClass('searchbox-hidden');
         $('[data-search-input]').val(searchValue);
         $('[data-search-input]').trigger('input');
-        var searchedElem = $('#body-inner').find(':contains(' + searchValue + ')').get(0);
+        var searchedElem = $('#content').find(':contains(' + searchValue + ')').get(0);
         searchedElem && searchedElem.scrollIntoView();
     }
 
@@ -167,9 +167,14 @@ jQuery(document).ready(function() {
 
         if (text.length > 5) {
             if (!clipInit) {
-                var text, clip = new Clipboard('.copy-to-clipboard', {
+                var text, clip = new Clipboard('code, .copy-to-clipboard', {
                     text: function(trigger) {
-                        text = $(trigger).prev('code').text();
+                        if ($(trigger).parent().is('pre') ) {
+                            text = $(trigger).prev('code').text();
+                        } else {
+                            text = $(trigger).text();
+                        }
+                        
                         return text.replace(/^\$\s/gm, '');
                     }
                 });
@@ -192,11 +197,19 @@ jQuery(document).ready(function() {
                 clipInit = true;
             }
 
-            code.after('<span class="copy-to-clipboard" title="Copy to clipboard"><object class="clippy-icon" type="image/svg+xml" data="/images/clippy.svg"/></span>');
+            if (code.parent().is('pre')) {
+                code.after('<span class="copy-to-clipboard" title="Copy to clipboard"><object class="clippy-icon" type="image/svg+xml" data="/images/clippy.svg"/></span>');
+            }
+            // code.after('<span class="copy-to-clipboard" title="Copy to clipboard"><object class="clippy-icon" type="image/svg+xml" data="/images/clippy.svg"/></span>');
+
             code.next('.copy-to-clipboard').on('mouseleave', function() {
                 $(this).attr('aria-label', null).removeClass('tooltipped tooltipped-s tooltipped-w');
             });
         }
+
+        code.on('mouseleave', function() {
+            $(this).attr('aria-label', null).removeClass('tooltipped tooltipped-s tooltipped-w');
+        });
     });
 
     // allow keyboard control for prev/next links
@@ -222,7 +235,7 @@ jQuery(document).ready(function() {
     });
 
     $('#top-bar a:not(:has(img)):not(.btn)').addClass('highlight');
-    $('#body-inner a:not(:has(img)):not(.btn)').addClass('highlight');
+    $('#content a:not(:has(img)):not(.btn)').addClass('highlight');
 
     var touchsupport = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0) || (navigator.msMaxTouchPoints > 0)
     if (!touchsupport){ // browser doesn't support touch
@@ -245,29 +258,31 @@ jQuery(document).ready(function() {
 
 });
 
-jQuery(window).on('load', function() {
+$(window).on('load', function() {
 
     function adjustForScrollbar() {
-        if ((parseInt(jQuery('#body-inner').height()) + 83) >= jQuery('#body').height()) {
-            jQuery('.nav.nav-next').css({ 'margin-right': getScrollBarWidth() });
+        if ((parseInt($('#content').height()) + 83) >= $('#body').height()) {
+            $('.nav.nav-next').css({ 'margin-right': getScrollBarWidth() });
+            $('#sidebar-inner').css({ 'margin-right': getScrollBarWidth() * -1 });
         } else {
-            jQuery('.nav.nav-next').css({ 'margin-right': 0 });
+            $('.nav.nav-next').css({ 'margin-right': 0 });
+            $('#sidebar-inner').css({ 'margin-right': 0 });
         }
     }
 
     // adjust sidebar for scrollbar
     adjustForScrollbar();
 
-    jQuery(window).smartresize(function() {
+    $(window).smartresize(function() {
         adjustForScrollbar();
     });
 
     // store this page in session
-    sessionStorage.setItem(jQuery('body').data('url'), 1);
+    sessionStorage.setItem($('body').data('url'), 1);
 
     // loop through the sessionStorage and see if something should be marked as visited
     for (var url in sessionStorage) {
-        if (sessionStorage.getItem(url) == 1) jQuery('[data-nav-id="' + url + '"]').addClass('visited');
+        if (sessionStorage.getItem(url) == 1) $('[data-nav-id="' + url + '"]').addClass('visited');
     }
 
 
