@@ -1,12 +1,13 @@
 {{ partial "header.html" . }}
-<span id="sidebar-toggle-span">
-<a href="#" id="sidebar-toggle" data-sidebar-toggle=""><i class="fa fa-bars"></i> navigation</a>
-</span>
 
-{{if .Site.Home.Content }} 
-	{{.Site.Home.Content}}	
-{{else}}           
-	<p><i class="fa fa-heart fa-4x"></i></p>
-{{ end }}  
+	<span id="sidebar-toggle-span">
+	<a href="#" id="sidebar-toggle" data-sidebar-toggle=""><i class="fa fa-bars"></i> navigation</a>
+	</span>
+
+	{{ if .Site.Home.Content }} 
+		{{ .Site.Home.Content }}	
+	{{ else }}           
+		<p><i class="fa fa-heart fa-4x"></i></p>
+	{{ end }}  
 
 {{ partial "footer.html" . }}

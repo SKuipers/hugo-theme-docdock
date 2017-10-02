@@ -1,19 +1,14 @@
+    </article>
 
-
-        {{ partial "custom-content-footer.html" . }}
-      </div>
-    </div>
-
-    {{ partial "footer-nav.html" . }}
+    <footer id="content-footer">
+      {{ partial "footer/prev-next.html" . }}
+      
+      {{ partial "footer/credits.html" . }}
+    </footer>
     
-    {{ partial "footer-credits.html" . }}
-    
-    </section>
-    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
-      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
-    </div>    
+    <div id="overlay"></div>
+    </main>
 
-    {{ partial "scripts.html" . }}
-    {{ partial "custom-footer.html" . }}
+    {{ partial "footer/scripts.html" . }}
   </body>
 </html>
