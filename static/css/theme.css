@@ -1051,25 +1051,24 @@ code, kbd, pre, samp {
 
 code {
   border-radius: 2px;
-  white-space: nowrap;
   color: #616161;
   background: #FFF7DD;
   border: 1px solid #ffeeb8;
-  padding: 0px 2px;
+  padding: 3px 4px 2px;
   cursor: copy;
 }
 
 pre > code {
   cursor: text;
+  padding: 0px 2px;
 }
 
 .hljs {
-  background: #1d1f21;
+  background: #f7f7f7;
 }
 
 code + .copy-to-clipboard {
   margin-left: -2px;
-  border-left: 0 !important;
   font-size: inherit !important;
   vertical-align: middle;
   height: 21px;
@@ -1079,8 +1078,8 @@ code + .copy-to-clipboard {
 pre {
   padding: 1rem;
   margin: 2rem 0;
-  background: #1d1f21;
-  border: 1px solid #272a2c;
+  background: #f7f7f7 !important;
+  border: 0px solid #ffffff;
   border-radius: 2px;
   line-height: 1.15;
 }
@@ -1546,7 +1545,7 @@ code.tooltipped {
 .clippy-svg {
   /* TODO: Fix this so clippy fill colour is differnt when in block, not inline */
   /*    fill: $main_code_inline_text_color !important;*/
-  fill: black !important;
+  fill: #616161 !important;
   pointer-events: none;
 }
 
@@ -1554,14 +1553,14 @@ pre .copy-to-clipboard {
   position: absolute;
   right: 4px;
   top: 4px;
-  background-color: #4f545a;
+  background-color: #FFF7DD;
   color: #ccc;
-  border: 1px solid #272a2c;
+  border: 1px solid #ffeeb8;
   border-radius: 2px;
 }
 
 pre .copy-to-clipboard:hover {
-  background-color: #60666d;
+  background-color: #ffda63;
   color: #fff;
 }
 

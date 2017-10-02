@@ -766,16 +766,17 @@ code, kbd, pre, samp {
 
 code {
     border-radius: 2px;
-    white-space: nowrap;
+    // white-space: nowrap;
     color: $main_code_inline_text_color;
     background: $main_code_inline_back_color;
     border: 1px solid $main_code_inline_border_color;
-    padding: 0px 2px;
+    padding: 3px 4px 2px;
     cursor: copy;
 }
 
 pre > code {
     cursor: text;
+    padding: 0px 2px;
 }
 
 .hljs {
@@ -784,7 +785,6 @@ pre > code {
 
 code + .copy-to-clipboard {
     margin-left: -2px;
-    border-left: 0 !important;
     font-size: inherit !important;
     vertical-align: middle;
     height: 21px;
@@ -794,8 +794,8 @@ code + .copy-to-clipboard {
 pre {
     padding: 1rem;
     margin: 2rem 0;
-    background: $main_code_block_back_color;
-    border: 1px solid $main_code_block_border_color;
+    background: $main_code_block_back_color !important;
+    border: 0px solid #ffffff;
     border-radius: 2px;
     line-height: 1.15;
 }
@@ -1271,7 +1271,7 @@ code.tooltipped {
 .clippy-svg {
 /* TODO: Fix this so clippy fill colour is differnt when in block, not inline */
 /*    fill: $main_code_inline_text_color !important;*/
-    fill: black !important;
+    fill: $main_code_inline_text_color !important;
     pointer-events: none;
 }
 
@@ -1279,14 +1279,14 @@ pre .copy-to-clipboard {
     position: absolute;
     right: 4px;
     top: 4px;
-    background-color: lshift($main_code_block_back_color, $main_code_block_back_color, 15%, 15%);
+    background-color: $main_code_inline_back_color;
     color: #ccc;
-    border: 1px solid $main_code_block_border_color;
+    border: 1px solid $main_code_inline_border_color;
     border-radius: 2px;
 }
 
 pre .copy-to-clipboard:hover {
-    background-color: lshift($main_code_block_back_color, $main_code_block_back_color, 20%, 20%);
+    background-color: lshift($main_code_inline_back_color, $main_code_inline_back_color, 20%, 20%);
     color: #fff;
 }
 
