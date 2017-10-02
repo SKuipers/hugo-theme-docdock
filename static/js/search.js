@@ -62,6 +62,7 @@ $( document ).ready(function() {
         /* selector for the search box element */
         selector: $("#search-by").get(0),
         /* source is the callback to perform the search */
+        minChars: 1,
         source: function(term, response) {
             response(search(term));
         },
