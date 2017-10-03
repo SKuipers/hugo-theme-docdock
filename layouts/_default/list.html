@@ -4,12 +4,37 @@
 		
 	{{ .Content }}
 
+	<!-- Loop over sections/pages and list them  -->
+	{{ if .Page.Sections }}
+		{{ range .Page.Sections.ByWeight }}
+			{{ template "children" . }}	
+		{{ end }}
+	{{ else }}
+		{{ template "children" . }}
+	{{ end }}
+
+
+	{{ define "children" }}
+		<h3>{{ .Title }}</h3>
+
+		{{ if .Pages }} 
+		<ul>
+		{{ range .Pages.ByWeight }}
+			<li><a href="{{ .URL }}">{{ .Title }}</a></li>
+		{{ end }}
+		</ul>
+		{{ end }}
+	{{ end }}
+
+	<br/>
+
 	{{ partial "article/tags.html" . }}
 
 	{{ partial "article/contribute.html" . }}
 
 
-	{{if not .Content }}
+
+	<!-- {{if not .Content }}
 		{{ $paginator := .Paginator }}
 
 		<div class="extra-pagination inner">
@@ -23,6 +48,6 @@
 		<div style="margin-bottom:2rem"></div>
 
 		{{ partial "pagination.html" $paginator }}
-	{{end}}
+	{{end}} -->
 
 {{ partial "footer.html" . }}

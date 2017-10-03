@@ -466,6 +466,7 @@ button {
     position: relative;
     margin-left: 300px;
     min-height: calc(100% - 4.5rem);
+    padding-bottom: 14.5rem;
 }
 
 #main img, #main .video-container {
@@ -593,6 +594,12 @@ button {
             display: block;
         }
     }
+}
+
+#content-footer {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
 }
 
 

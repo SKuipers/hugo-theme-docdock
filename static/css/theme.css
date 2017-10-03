@@ -753,6 +753,7 @@ button {
   position: relative;
   margin-left: 300px;
   min-height: calc(100% - 4.5rem);
+  padding-bottom: 14.5rem;
 }
 
 #main img, #main .video-container {
@@ -872,6 +873,12 @@ button {
   #content .table-of-contents {
     display: block;
   }
+}
+
+#content-footer {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
 }
 
 /* Table of contents */

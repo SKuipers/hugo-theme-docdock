@@ -35,7 +35,7 @@ Use the children shortcode to list the child pages of a page and the further des
 
 	{{%/* children style="h2" depth="3" description="true" */%}}
 
-{{% children style="h2" depth="3" description="true" %}}
+
 
 	{{%/* children style="div" depth="999" */%}}
 
