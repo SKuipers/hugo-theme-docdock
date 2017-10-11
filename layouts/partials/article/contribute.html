@@ -6,12 +6,12 @@
 	{{ $Site := .Site }}
 	
 	{{with $File.Path }}
-		<button class="github-link github-add" data-url="{{ $Site.Params.newURL }}{{ replace $File.Dir "\\" "/" }}add?filename=TEMPLATE_FILE.md&value={{ partial "template-page" | safeHTMLAttr }}&message=Add page TEMPLATE_NAME under {{ $.Title }}&description=Briefly describe your new page">
+		<button class="github-link github-add" data-url="{{ $Site.Params.newURL }}?filename={{ replace $File.Dir "\\" "/" }}TEMPLATE_FILE.md&value={{ partial "template-page" | safeHTMLAttr }}&message=Add page TEMPLATE_NAME under {{ $.Title }}&description=Briefly describe your new page">
 		<i class="fa fa-file-o"></i>
 		New Page
 		</button> 
 	or 
-		<button class="github-link github-add" data-url="{{ $Site.Params.newURL }}{{ replace $File.Dir "\\" "/" }}TEMPLATE_FILE/add?filename=_index.md&value={{ partial "template-section" | safeHTMLAttr }}&message=Add section TEMPLATE_NAME under {{ $.Title }}&description=Briefly describe your new section">
+		<button class="github-link github-add" data-url="{{ $Site.Params.newURL }}TEMPLATE_FILE?filename={{ replace $File.Dir "\\" "/" }}_index.md&value={{ partial "template-section" | safeHTMLAttr }}&message=Add section TEMPLATE_NAME under {{ $.Title }}&description=Briefly describe your new section">
 		<i class="fa fa-folder-open"></i>
 		New Section
 		</button> 
