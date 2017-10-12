@@ -248,17 +248,11 @@ h2:hover .anchor, h3:hover .anchor, h4:hover .anchor, h5:hover .anchor, h6:hover
     background: $side_focus_back_color;
     text-align: center; 
 
-    a {
-        color: darken($main_link_color, 15%);
-    }
-
     .credits-text {
         margin-top: 2rem;
-        
         font-size: 11px;
 
         a {
-            color: $primary_color;
             font-weight: bold;
         }
     }
@@ -567,6 +561,10 @@ button {
 
 #content {
     width: 100%;
+    font-size: 16px;
+    font-weight: 400;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    line-height: 24px;
 
     .table-of-contents {
         display: none;
@@ -657,10 +655,10 @@ button {
     padding: 2rem 0;
 }
 
-#chapter #content {
-    padding-bottom: 3rem;
-    max-width: 80%;
-}
+// #chapter #content {
+//     padding-bottom: 3rem;
+//     max-width: 80%;
+// }
 
 #chapter h3 {
     font-family: "Work Sans", "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
@@ -773,12 +771,13 @@ code, kbd, pre, samp {
 
 code {
     border-radius: 2px;
-    // white-space: nowrap;
+    word-wrap: break-word;
     color: $main_code_inline_text_color;
     background: $main_code_inline_back_color;
-    border: 1px solid $main_code_inline_border_color;
+    //border: 1px solid $main_code_inline_border_color;
     padding: 3px 4px 2px;
     cursor: copy;
+    
 }
 
 pre > code {

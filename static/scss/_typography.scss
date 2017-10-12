@@ -4,12 +4,16 @@ body {
   line-height: 1.6;
   font-size: 18px;
   color: $main_text_color;
+}
 
-  strong {
-    font-family: "Lato Bold", "Work Sans", "Helvetica", "Tahoma", "Geneva",
-      "Arial", sans-serif;
-    font-weight: bold;
-  }
+strong {
+  font-family: "Lato Bold", "Work Sans", "Helvetica", "Tahoma", "Geneva",
+    "Arial", sans-serif;
+  font-weight: bold;
+}
+
+small {
+  font-size: 80%;
 }
 
 h1 {
@@ -49,28 +53,29 @@ h6 a {
 }
 
 h2 {
-  font-size: 2.5rem;
-  margin: 2.5rem 0 1.5rem 0;
+  font-size: 2.25rem;
+  margin: 2.25rem 0 0.5rem 0;
   text-transform: capitalize;
+  font-weight: 400;
 }
 
 h3 {
-  font-size: 2rem;
-  margin: 2rem 0 1rem 0;
+  font-size: 1.75rem;
+  margin: 1.75rem 0 0.5rem 0;
 }
 
 h4 {
-  font-size: 1.5rem;
-  margin: 1.5rem 0 0.75rem 0;
+  font-size: 1.4rem;
+  margin: 1.4rem 0 0.5rem 0;
 }
 
 h5 {
-  font-size: 1rem;
-  margin: 1rem 0 0.2rem 0;
+  font-size: 1.25rem;
+  margin: 1.25rem 0 0.5rem 0;
 }
 
 h6 {
-  font-size: 0.5rem;
+  font-size: 1rem;
   margin: 0.5rem 0 0.2rem 0;
 }
 
@@ -110,6 +115,14 @@ a {
 a:active,
 a:hover {
   outline: 0;
+}
+
+.secondary-link {
+  color: $secondary_link_color;
+
+  &:hover {
+    color: $secondary_link_hover_color;
+  }
 }
 
 ul,

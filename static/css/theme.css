@@ -96,9 +96,14 @@ body {
   font-size: 18px;
   color: #323232;
 }
-body strong {
+
+strong {
   font-family: "Lato Bold", "Work Sans", "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
   font-weight: bold;
+}
+
+small {
+  font-size: 80%;
 }
 
 h1 {
@@ -136,28 +141,29 @@ h6 a {
 }
 
 h2 {
-  font-size: 2.5rem;
-  margin: 2.5rem 0 1.5rem 0;
+  font-size: 2.25rem;
+  margin: 2.25rem 0 0.5rem 0;
   text-transform: capitalize;
+  font-weight: 400;
 }
 
 h3 {
-  font-size: 2rem;
-  margin: 2rem 0 1rem 0;
+  font-size: 1.75rem;
+  margin: 1.75rem 0 0.5rem 0;
 }
 
 h4 {
-  font-size: 1.5rem;
-  margin: 1.5rem 0 0.75rem 0;
+  font-size: 1.4rem;
+  margin: 1.4rem 0 0.5rem 0;
 }
 
 h5 {
-  font-size: 1rem;
-  margin: 1rem 0 0.2rem 0;
+  font-size: 1.25rem;
+  margin: 1.25rem 0 0.5rem 0;
 }
 
 h6 {
-  font-size: 0.5rem;
+  font-size: 1rem;
   margin: 0.5rem 0 0.2rem 0;
 }
 
@@ -210,6 +216,13 @@ a {
 a:active,
 a:hover {
   outline: 0;
+}
+
+.secondary-link {
+  color: #6D5496;
+}
+.secondary-link:hover {
+  color: #8A73AF;
 }
 
 ul,
@@ -498,7 +511,7 @@ button, input, optgroup, select, textarea {
 
 /* anchors */
 .anchor {
-  color: #00bdf3;
+  color: #06b3e2;
   font-size: 0.5em;
   cursor: pointer;
   visibility: hidden;
@@ -540,15 +553,11 @@ h2:hover .anchor, h3:hover .anchor, h4:hover .anchor, h5:hover .anchor, h6:hover
   background: #f6f6f6;
   text-align: center;
 }
-.footline a {
-  color: #0082a7;
-}
 .footline .credits-text {
   margin-top: 2rem;
   font-size: 11px;
 }
 .footline .credits-text a {
-  color: #794d95;
   font-weight: bold;
 }
 
@@ -595,7 +604,7 @@ body #chapter h1 {
 }
 
 a {
-  color: #00bdf3;
+  color: #06b3e2;
   -webkit-transition: color 0.15s ease;
   -moz-transition: color 0.15s ease;
   -o-transition: color 0.15s ease;
@@ -848,6 +857,10 @@ button {
 
 #content {
   width: 100%;
+  font-size: 16px;
+  font-weight: 400;
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  line-height: 24px;
 }
 #content .table-of-contents {
   display: none;
@@ -933,11 +946,6 @@ button {
   justify-content: center;
   height: 100%;
   padding: 2rem 0;
-}
-
-#chapter #content {
-  padding-bottom: 3rem;
-  max-width: 80%;
 }
 
 #chapter h3 {
@@ -1058,9 +1066,9 @@ code, kbd, pre, samp {
 
 code {
   border-radius: 2px;
-  color: #616161;
-  background: #FFF7DD;
-  border: 1px solid #ffeeb8;
+  word-wrap: break-word;
+  color: #387894;
+  background: #f7f7f7;
   padding: 3px 4px 2px;
   cursor: copy;
 }
@@ -1524,12 +1532,12 @@ code.tooltipped {
   display: inline-block;
   position: relative;
   color: #5e5e5e;
-  background-color: #FFF7DD;
+  background-color: #f7f7f7;
   text-align: center;
   cursor: pointer;
   border-radius: 0 2px 2px 0;
   padding: 0.1rem;
-  border: 1px solid #ffeeb8;
+  border: 1px solid #e6e6e6;
   -webkit-transition: all 0.15s ease;
   -moz-transition: all 0.15s ease;
   -o-transition: all 0.15s ease;
@@ -1537,7 +1545,7 @@ code.tooltipped {
 }
 
 .copy-to-clipboard:hover {
-  background-color: #f8efd1;
+  background-color: #efefef;
 }
 
 .clippy-icon {
@@ -1552,7 +1560,7 @@ code.tooltipped {
 .clippy-svg {
   /* TODO: Fix this so clippy fill colour is differnt when in block, not inline */
   /*    fill: $main_code_inline_text_color !important;*/
-  fill: #616161 !important;
+  fill: #387894 !important;
   pointer-events: none;
 }
 
@@ -1560,14 +1568,14 @@ pre .copy-to-clipboard {
   position: absolute;
   right: 4px;
   top: 4px;
-  background-color: #FFF7DD;
+  background-color: #f7f7f7;
   color: #ccc;
-  border: 1px solid #ffeeb8;
+  border: 1px solid #e6e6e6;
   border-radius: 2px;
 }
 
 pre .copy-to-clipboard:hover {
-  background-color: #ffda63;
+  background-color: silver;
   color: #fff;
 }
 
@@ -1887,6 +1895,10 @@ pre .copy-to-clipboard:hover {
 
 .text-primary {
   color: #794d95;
+}
+
+.compact {
+  margin: 0;
 }
 
 @media only all and (min-width: 48em) and (max-width: 59.938em) {
