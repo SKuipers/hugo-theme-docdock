@@ -1,0 +1,3 @@
+{{ $path := (print "https://api.github.com/repos/GibbonEdu/core/commits?path=" (replace $.File.Path "\\" "/") ) }}
+{{ $resp := getJSON $path }}
+{{ $resp.content | base64Decode | markdownify }}

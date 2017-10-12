@@ -5,34 +5,47 @@
 	{{ .Content }}
 
 	<!-- Loop over sections/pages and list them  -->
-	{{ if .Page.Sections }}
-		{{ range .Page.Sections.ByWeight }}
-			{{ template "children" . }}	
+
+	{{ $pages := (union .Page.Pages .Page.Sections) }}
+	{{ if $pages }}
+		{{ range $pages.ByWeight }}
+		{{ template "children" dict "depth" 0 "Page" . }}
 		{{ end }}
-	{{ else }}
-		{{ template "children" . }}
 	{{ end }}
 
 
 	{{ define "children" }}
-		<h3>{{ .Title }}</h3>
+		
+		{{ $depth := (add .depth 1) }}
+		{{ $pages := (union .Page.Pages .Page.Sections) }}
 
-		{{ if .Pages }} 
-		<ul>
-		{{ range .Pages.ByWeight }}
-			<li><a href="{{ .URL }}">{{ .Title }}</a></li>
+		{{ if and $pages (eq $depth 1) }}
+			<h3>{{ .Page.Title }}</h3>
+		
+		{{ else }}
+			<a href="{{ .Page.URL }}">{{ .Page.Title }}</a><br/>
 		{{ end }}
-		</ul>
+
+		{{ if $pages }}
+			<ul class="compact">
+			{{ range $pages.ByWeight }}
+				<li>
+					{{ template "children" dict "depth" $depth "Page" . }}	
+				</li>
+			{{ end }}
+			</ul>
 		{{ end }}
+
 	{{ end }}
+
 
 	<br/>
 
-	{{ partial "article/tags.html" . }}
+	
 
 	{{ partial "article/contribute.html" . }}
 
-
+	{{ partial "article/tags.html" . }}
 
 	<!-- {{if not .Content }}
 		{{ $paginator := .Paginator }}

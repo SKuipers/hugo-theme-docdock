@@ -4,10 +4,6 @@
 	<a href="#" id="sidebar-toggle" data-sidebar-toggle=""><i class="fa fa-bars"></i> navigation</a>
 	</span>
 
-	{{ if .Site.Home.Content }} 
-		{{ .Site.Home.Content }}	
-	{{ else }}           
-		<p><i class="fa fa-heart fa-4x"></i></p>
-	{{ end }}  
+	{{ .Site.Home.Content }}	
 
 {{ partial "footer.html" . }}
