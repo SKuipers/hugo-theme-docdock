@@ -14,8 +14,8 @@
   
     <ul class="topics">
         {{- if not .Site.Params.noHomeIcon}}
-            <li data-nav-id="{{"/" | relURL}}" class="dd-item">
-            <a href="{{"/" | relURL}}"><i class="fa fa-fw fa-home"></i></a>
+            <li data-nav-id="{{"/" | relURL}}" class="dd-item" style="margin-bottom: 1rem;">
+            <a href="{{"/" | relURL}}"><i class="fa fa-fw fa-home"></i> <small>Documentation Home</small></a>
             </li>
         {{- end}}
 

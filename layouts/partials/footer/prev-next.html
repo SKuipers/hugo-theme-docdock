@@ -34,14 +34,14 @@
 
 
     {{- with ($.Scratch.Get "prevPage") -}}
-        <a class="nav nav-prev" href="{{.URL}}" title="{{.Title}}"> 
+        <a class="nav nav-prev secondary-link" href="{{.URL}}" title="{{.Title}}"> 
             <i class="nav-icon fa fa-angle-double-left fa-lg"></i> 
             <span class="nav-subtitle">Previous</span>
             {{.Title}}
         </a>
     {{ end -}}
     {{- with ($.Scratch.Get "nextPage") -}}
-        <a class="nav nav-next" href="{{.URL}}" title="{{.Title}}" style="margin-right: 0px;">
+        <a class="nav nav-next secondary-link" href="{{.URL}}" title="{{.Title}}" style="margin-right: 0px;">
             <i class="nav-icon fa fa-angle-double-right fa-lg"></i>
             <span class="nav-subtitle">Next</span>
             {{.Title}} 

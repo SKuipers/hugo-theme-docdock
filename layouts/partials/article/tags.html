@@ -1,8 +1,32 @@
+<div id="tags" style="color: #999999">
 {{if .Params.tags }}
-<div id="tags">
-	Tags: 
+<div>
+	<small><i class="fa fa-fw fa-tag"></i> Tags: </small> 
 	{{ range $index, $tag := .Params.tags }}
-		<a class="label label-default" href="{{$.Site.BaseURL}}/tags/{{ $tag | urlize }}">{{ $tag }}</a>
+		<a class="label label-default" href="{{$.Site.BaseURL}}tags/{{ $tag | urlize }}">{{ $tag }}</a>
 	{{ end }}
-	</div>
+</div>
 {{end}}
+
+{{ if or .IsPage .Content }}
+<div>
+	<small><i class="fa fa-fw fa-clock-o"></i> Last updated : 
+	{{ with $.GitInfo }}
+		{{ .AuthorDate.Format "January 2, 2006" }} <a style="color: #AAAAAA;font-size:70%;" href="{{$.Site.Params.ghrepo}}commit/{{ .Hash }}" title=" {{ .AuthorName }} committed: {{ .Subject }}"><i class='fa fa-sm fa-code'></i> {{ .AbbreviatedHash }}</a>
+	{{ else }}
+		{{ .Page.Lastmod.Format "January 2, 2006" }}
+	{{ end }}
+	</small>
+</div>
+{{ end }}
+
+{{ if .Params.Contributors }}
+<div>
+	<small><i class="fa fa-fw fa-pencil-square-o"></i> Contributors to this page :
+	{{ range $index, $contributor := .Params.Contributors }}
+	<a href="https://github.com/{{ $contributor }}">{{ $contributor | lower }}</a>
+	{{ end }}
+</div>
+{{ end }}
+
+</div>
