@@ -1734,13 +1734,6 @@ pre .copy-to-clipboard:hover {
 #sidebar ul.topics {
   margin: 0 1rem;
 }
-#sidebar ul.topics label {
-  margin-top: 10px;
-  /*margin-bottom: 5px;*/
-  font-family: 'Novacento Sans Wide', 'Helvetica', 'Tahoma', 'Geneva', 'Arial', sans-serif;
-  font-weight: 100;
-  color: white;
-}
 #sidebar ul.topics.searched ul {
   display: block;
 }
@@ -1851,7 +1844,9 @@ pre .copy-to-clipboard:hover {
 #sidebar ul li.active > a .category-icon {
   right: 15px;
 }
-#sidebar #shortcuts h3 {
+#sidebar #shortcuts h3,
+#sidebar #shortcuts h4,
+#sidebar #shortcuts h5 {
   font-family: 'Novacento Sans Wide', 'Helvetica', 'Tahoma', 'Geneva', 'Arial', sans-serif;
   color: #323232;
 }

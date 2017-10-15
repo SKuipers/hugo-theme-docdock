@@ -32,6 +32,10 @@
 
       {{- with .Site.Menus.shortcuts}}
       <ul id="shortcuts" class="topics">
+        <li>
+            {{- partial "mailing-list.html" . }}
+        </li>
+
           {{- range sort . "Weight"}}
               <li class="" role="">
                   {{- .Pre -}}
@@ -45,6 +49,8 @@
         {{- end}}
       </ul>
       {{- end}}
+
+    
 
     <footer id="sidebar-footer">
         {{- partial "sidebar-footer.html" . }}

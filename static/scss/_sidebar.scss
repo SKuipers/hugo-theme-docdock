@@ -160,14 +160,6 @@
 		    margin: 0 1rem;
 		}
 
-		&.topics label{
-		    margin-top: 10px;
-		    /*margin-bottom: 5px;*/
-		    font-family: 'Novacento Sans Wide', 'Helvetica', 'Tahoma', 'Geneva', 'Arial', sans-serif;
-		    font-weight:100;
-		    color:white;
-		}
-
 		&.topics.searched ul {
 		    display: block;
 		}
@@ -301,7 +293,9 @@
 	//     width: calc(100% - 8px);
 	// }
 
-	#shortcuts h3 {
+	#shortcuts h3,
+	#shortcuts h4,
+	#shortcuts h5 {
 	    font-family: 'Novacento Sans Wide', 'Helvetica', 'Tahoma', 'Geneva', 'Arial', sans-serif;
 	    color: $side_text_color;
 	}
