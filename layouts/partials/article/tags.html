@@ -26,6 +26,7 @@
 	{{ range $index, $contributor := .Params.Contributors }}
 	<a href="https://github.com/{{ $contributor }}">{{ $contributor | lower }}</a>
 	{{ end }}
+	</small>
 </div>
 {{ end }}
 
