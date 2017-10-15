@@ -2,7 +2,7 @@
 other = "Create a _header.md to customize this"
 
 [Search-placeholder]
-other = "Search..."
+other = "Search the docs"
 
 [Clear-History]
 other = "Clear History"
