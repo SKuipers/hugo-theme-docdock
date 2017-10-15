@@ -187,6 +187,13 @@
 		    font-weight: normal;
 		}
 
+		.category-toggle:hover + .fa-angle-right,
+		.category-toggle:hover + .fa-angle-down,
+		.category-toggle.fa-angle-right:hover,
+		.category-toggle.fa-angle-down:hover {
+			color: $main_link_hover_color;
+			cursor: pointer;
+		}
 
 		li .category-icon {
 		    color: $side_link_extra_color;

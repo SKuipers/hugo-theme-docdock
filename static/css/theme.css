@@ -544,7 +544,7 @@ h2:hover .anchor, h3:hover .anchor, h4:hover .anchor, h5:hover .anchor, h6:hover
 
 #tags {
   display: block;
-  margin: 0.5rem 0;
+  margin: 3rem 0 0.5rem 0;
 }
 
 .footline {
@@ -661,6 +661,7 @@ textarea, input[type="email"], input[type="number"], input[type="password"], inp
   border: 1px solid #ddd;
   box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06);
   border-radius: 3px;
+  padding-left: 4px;
 }
 
 textarea:hover, input[type="email"]:hover, input[type="number"]:hover, input[type="password"]:hover, input[type="search"]:hover, input[type="tel"]:hover, input[type="text"]:hover, input[type="url"]:hover, input[type="color"]:hover, input[type="date"]:hover, input[type="datetime"]:hover, input[type="datetime-local"]:hover, input[type="month"]:hover, input[type="time"]:hover, input[type="week"]:hover, select[multiple=multiple]:hover {
@@ -1754,6 +1755,13 @@ pre .copy-to-clipboard:hover {
 #sidebar ul.topics > li > a b {
   opacity: 0.5;
   font-weight: normal;
+}
+#sidebar ul .category-toggle:hover + .fa-angle-right,
+#sidebar ul .category-toggle:hover + .fa-angle-down,
+#sidebar ul .category-toggle.fa-angle-right:hover,
+#sidebar ul .category-toggle.fa-angle-down:hover {
+  color: #0082a7;
+  cursor: pointer;
 }
 #sidebar ul li .category-icon {
   color: #323232;
