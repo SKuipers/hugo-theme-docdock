@@ -70,21 +70,24 @@
     {{- safeHTML .Params.head}}
     <li data-nav-id="{{.URL}}" class="dd-item
         {{- if .IsAncestor $currentNode}} parent{{end}}
+        {{- if eq . $currentNode.Parent }} active-parent{{end}}
         {{- if eq .UniqueID $currentNode.UniqueID}} active{{end}}
         {{- if .Params.alwaysopen}} parent{{end -}}
         ">
-      <a href="{{ .RelPermalink}}">
-        
-        <span class="{{- if not (or (eq .Parent .Site.Home) (.Content) ) }} category-toggle{{end}}">{{safeHTML .Params.Pre}}{{.Title}}{{safeHTML .Params.Post}}</span>
+      <a {{- if not (or (eq .Parent .Site.Home) (.Content) ) }}
+          class="category-toggle" href="#"
+         {{else}} href="{{ .RelPermalink}}"{{end}} 
+        >
+        <span class="">{{safeHTML .Params.Pre}}{{.Title}}{{safeHTML .Params.Post}}</span>
 
         {{- if $showvisitedlinks}}<i class="fa fa-check read-icon"></i>{{end}}
 
         {{- $numberOfPages := (add (len .Pages) (len .Sections)) }}
         {{- if ne $numberOfPages 0 }}
           {{- if or (.IsAncestor $currentNode) (.Params.alwaysopen) }}
-            <i class="fa fa-angle-down fa-lg category-icon category-toggle"></i>
+            <i class="fa fa-angle-down fa-lg category-icon"></i>
           {{- else -}}
-            <i class="fa fa-angle-right fa-lg category-icon category-toggle"></i>
+            <i class="fa fa-angle-right fa-lg category-icon"></i>
           {{- end}}
         {{- end}}
       </a>
