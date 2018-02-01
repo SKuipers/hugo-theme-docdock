@@ -6,12 +6,20 @@
 
 	<!-- Loop over sections/pages and list them  -->
 
-	{{ $pages := (union .Page.Pages .Page.Sections) }}
-	{{ if $pages }}
-		{{ range $pages.ByWeight }}
-		{{ template "children" dict "depth" 0 "Page" . }}
-		{{ end }}
-	{{ end }}
+    {{ if .Page.Sections }}
+        {{ range .Page.Sections.ByWeight }}
+        {{ template "children" dict "depth" 0 "Page" . }}
+        {{ end }}
+    {{ end }}
+    
+    {{ if .Page.Pages }}
+        <h4>Pages:</h4>
+        <ul class="compact">
+        {{ range .Page.Pages.ByWeight }}
+        <li>{{ template "children" dict "depth" 0 "Page" . }}</li>
+        {{ end }}
+        </ul>
+    {{ end }}
 
 
 	{{ define "children" }}
