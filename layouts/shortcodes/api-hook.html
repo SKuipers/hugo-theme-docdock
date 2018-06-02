@@ -1,0 +1,5 @@
+{{ $class := .Get 0 }}
+{{ $file := printf "%s%s.md" "content/api" (replace $class "/Gibbon/" "/Examples/") }}
+{{ if (fileExists $file) -}}
+{{ $file | readFile | markdownify }}
+{{- end }}

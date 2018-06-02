@@ -1,0 +1,5 @@
+
+<!-- EG: https://api.github.com/repos/GibbonEdu/core/contents/docs/CONTRIBUTING.md -->
+{{ $resp := getJSON (.Get 0) }}
+{{ $resp.content | base64Decode | markdownify }}
+ 
