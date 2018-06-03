@@ -1061,8 +1061,10 @@ div.notices.warning {
 }
 
 code, kbd, pre, samp {
-  font-family: "Consolas", menlo, monospace;
-  font-size: 92%;
+  font-family: "Fira Code";
+  font-feature-settings: "calt" 1;
+  font-variant-ligatures: contextual;
+  font-size: 85%;
 }
 
 code {
@@ -1107,7 +1109,8 @@ pre code {
   border: 0;
   padding: 0;
   margin: 0;
-  font-size: 15px;
+  font-size: 13px;
+  line-height: 1.45;
 }
 
 hr {
