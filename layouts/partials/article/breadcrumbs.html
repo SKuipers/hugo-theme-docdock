@@ -1,7 +1,11 @@
 
 <header id="content-header" class="padding">
   <nav id="top-bar">
-    {{ if and (or .IsPage .IsSection) .Site.Params.editURL }}
+    {{- if eq .Page.Params.generated true }}
+    <div id="top-github-link">
+        <small title="This page was generated from PHPDocs in the codebase."><i class="fa fa-gears"></i> API</small>
+    </div>
+    {{ else if and (or .IsPage .IsSection) .Site.Params.editURL }}
       {{ $File := .File }}
       {{ $Site := .Site }}
       {{with $File.Path }}
