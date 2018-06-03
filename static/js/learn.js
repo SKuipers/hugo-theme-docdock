@@ -78,6 +78,7 @@ $(window).resize(function() {
 
 jQuery(document).ready(function() {
     jQuery('#sidebar .category-toggle').on('click', function() {
+        $( '.category-icon', this ).toggleClass("fa-angle-down fa-angle-right") ;
         $( this ).parent().children('ul').toggle() ;
         return false;
     });
