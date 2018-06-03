@@ -1,3 +1,8 @@
 {{ with $.Page.Resources.GetMatch "example*" }}
 {{ .RawContent|markdownify }}
+
+{{ $File := .File }}
+{{- with .File.Path }}
+<div style="text-align:right; margin-top: -2rem; opacity: 0.35;"><a class="github-link" href="{{ $.Site.Params.editURL }}{{ replace $File.Dir "\\" "/" }}{{ $File.LogicalName }}" target="blank"><small><i class="fa fa-code-fork"></i> Edit this example</small></a></div>
+{{ end -}}
 {{ end }}
