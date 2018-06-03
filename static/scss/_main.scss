@@ -627,9 +627,10 @@ button {
 
 #TableOfContents {
     font-size: 13px !important;
-    max-height: 85vh;
+    max-height: 75vh;
     //overflow: auto;
     padding: 15px;
+    overflow-y: auto;
 }
 
 #TableOfContents > ul > li > ul > li > ul li {

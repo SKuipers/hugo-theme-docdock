@@ -356,7 +356,7 @@ button, input, optgroup, select, textarea {
   height: 1px;
   margin-top: 2px;
   opacity: 0;
-  background-color: #0082a7;
+  background-color: #1d9dd4;
 }
 
 #main a.highlight:hover:after, #main a.highlight:focus:after {
@@ -511,7 +511,7 @@ button, input, optgroup, select, textarea {
 
 /* anchors */
 .anchor {
-  color: #06b3e2;
+  color: #1664B0;
   font-size: 0.5em;
   cursor: pointer;
   visibility: hidden;
@@ -525,7 +525,7 @@ button, input, optgroup, select, textarea {
 }
 
 .anchor:hover {
-  color: #0082a7;
+  color: #1d9dd4;
   -webkit-transition: color 0.25s ease;
   -moz-transition: color 0.25s ease;
   -o-transition: color 0.25s ease;
@@ -604,7 +604,7 @@ body #chapter h1 {
 }
 
 a {
-  color: #06b3e2;
+  color: #1664B0;
   -webkit-transition: color 0.15s ease;
   -moz-transition: color 0.15s ease;
   -o-transition: color 0.15s ease;
@@ -612,7 +612,7 @@ a {
 }
 
 a:hover {
-  color: #0082a7;
+  color: #1d9dd4;
   -webkit-transition: color 0.15s ease;
   -moz-transition: color 0.15s ease;
   -o-transition: color 0.15s ease;
@@ -919,8 +919,9 @@ button {
 
 #TableOfContents {
   font-size: 13px !important;
-  max-height: 85vh;
+  max-height: 75vh;
   padding: 15px;
+  overflow-y: auto;
 }
 
 #TableOfContents > ul > li > ul > li > ul li {
@@ -1763,7 +1764,7 @@ pre .copy-to-clipboard:hover {
 #sidebar ul .category-toggle:hover + .fa-angle-down,
 #sidebar ul .category-toggle.fa-angle-right:hover,
 #sidebar ul .category-toggle.fa-angle-down:hover {
-  color: #0082a7;
+  color: #1d9dd4;
   cursor: pointer;
 }
 #sidebar ul li .category-icon {
