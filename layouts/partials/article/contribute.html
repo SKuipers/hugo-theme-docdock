@@ -1,4 +1,4 @@
-{{ if .IsSection }}
+{{ if and .IsSection (ne .Page.Params.generated true) }}
 <br/>
 <footer class="well">
 	<i class="fa fa-heart text-primary"></i> 
