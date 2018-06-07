@@ -766,7 +766,7 @@ div.notices.tip p:first-child:after {
 }
 
 code, kbd, pre, samp {
-    font-family: "Fira Code";
+    font-family: "Fira Code" SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", Courier, monospace;
     font-feature-settings: "calt" 1;
     font-variant-ligatures: contextual;
     // font-family: "Consolas", menlo, monospace;
