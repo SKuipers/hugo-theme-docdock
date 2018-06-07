@@ -1,0 +1,18 @@
+{{ partial "header.html" . }}
+
+    {{ if .TableOfContents }}
+    <aside class="table-of-contents">
+        <h5>In this article:</h5>
+        {{ .TableOfContents }}
+    </aside>
+    {{ end }}
+
+    <!-- <h1>{{ .Title }}</h1> -->
+
+    {{ .Content }}
+
+    {{ partial "article/related.html" . }}
+
+    {{ partial "article/tags.html" . }}
+
+{{ partial "footer.html" . }}
