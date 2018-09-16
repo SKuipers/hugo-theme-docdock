@@ -24,8 +24,6 @@
     }
 }
 
-
-
 @media only all and (max-width: 59.938em) {
     #main .padding {
         //position: static;
@@ -93,14 +91,12 @@
 }
 
 
-
-
 @media only all and (max-width: 59.938em) {
     #sidebar {
-        width: 230px;
+        width: $sidebar_width_small;
     }
     #main {
-        margin-left: 230px;
+        margin-left: $sidebar_width_small;
     }
 }
 

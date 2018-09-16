@@ -8,6 +8,9 @@ $border-radius: 3px;
 // active is the current page
 // focus is a group
 
+$sidebar_width: 260px;
+$sidebar_width_small: 210px;
+
 $side_link_color: $side_text_color;
 $side_link_hover_color: lshift_side($side_text_color, -12%, -12%);
 
