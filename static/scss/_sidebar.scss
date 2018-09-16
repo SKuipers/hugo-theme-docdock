@@ -60,8 +60,8 @@
     left: 0;
     font-size: 90%;
     line-height: 27px;
-	-webkit-font-smoothing: antialiased;
-	
+    -webkit-font-smoothing: antialiased;
+    
 
 	a {
 	    color: $side_link_color;
@@ -108,17 +108,17 @@
 	    font-size: 80%;
 	}
 
-	.dd-item .dd-item {
-		border-left: 3px solid transparent;
-	}
+	// .dd-item .dd-item {
+	// 	border-left: 3px solid transparent;
+	// }
 
-	.dd-item .dd-item.active {
-		border-left: 3px solid $side_focus_border_color;
-	}
+	// .dd-item .dd-item.active {
+	// 	border-left: 3px solid $side_focus_border_color;
+	// }
 
-	.dd-item.active-parent > ul > .dd-item:not(.active) {
-		border-left: 3px solid #E7E7E7;
-	}
+	// .dd-item.active-parent > ul > .dd-item:not(.active) {
+	// 	border-left: 3px solid #E7E7E7;
+	// }
 
 	h5.parent a {
 	    background: #201b24;
@@ -134,14 +134,14 @@
 	    color: #777 !important;
 	}
 
-	h5 + ul.topics {
-	    display: none;
-	    margin-top: 0;
-	}
+	// h5 + ul.topics {
+	//     display: none;
+	//     margin-top: 0;
+	// }
 
-	h5.parent + ul.topics, h5.active + ul.topics {
-	    display: block;
-	}
+	// h5.parent + ul.topics, h5.active + ul.topics {
+	//     display: block;
+	// }
 
 	ul {
 	    list-style: none;
@@ -162,23 +162,28 @@
 
 
 		&.topics {
-		    margin: 0 1rem;
-		}
+            margin: 0 1rem;
+            
+        }
+        
+        &.topics > li {
+            padding-left: $sidebar_left_padding;
+        }
 
 		&.topics.searched ul {
 		    display: block;
 		}
 
-		&.topics ul {
+		&.topics  ul {
 		    display: none;
 		    padding-bottom: 1rem;
 		}
 
-		&.topics ul ul {
-		    padding-bottom: 0;
-		}
+		// &.topics ul ul {
+		//     padding-bottom: 0;
+		// }
 
-		&.topics li.parent > ul, li.active > ul {
+		&.topics li.parent ul, li.active ul {
 		    display: block;
 		}
 
@@ -220,22 +225,27 @@
 		&.topics > li.parent, &.topics > li.active {
 
 		    background: $side_focus_back_color;
-		    margin-right: -1rem;
-		    padding-right: 1rem;
+		    margin-right: -$sidebar_right_padding;
+		    padding-right: $sidebar_right_padding;
 		}
 
 		.active > a {
 		    background: $side_active_back_color;
 		    color: $side_active_text_color !important;
-		    margin-right: -1rem;
-			padding-right: 1rem;
+		    margin-right: -$sidebar_right_padding;
+			padding-right: $sidebar_right_padding;
 			
-			margin-left: -1rem;
-			padding-left: 1rem;
-		}
+			margin-left: -$sidebar_left_padding;
+			padding-left: $sidebar_left_padding;
+        }
+        
+        .list-heading {
+            font-weight: bold;
+
+        }
 
 		li {
-			padding-left: 1rem;
+			// padding-left: 1rem;
 		}
 
 		li.active > a:hover {
@@ -253,7 +263,7 @@
 
 		li a {
 		    display: block;
-		    padding: 2px 0;
+		    // padding: 2px 0;
 		}
 
 		li a span {

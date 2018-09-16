@@ -75,20 +75,28 @@
         {{- if .Params.alwaysopen}} parent{{end -}}
         ">
       <a {{- if not (or (eq .Parent .Site.Home) (.Content) ) }}
-          class="category-toggle" href="#"
+          class="" href="#"
          {{else}} href="{{ .RelPermalink}}"{{end}} 
         >
-        <span class="">{{safeHTML .Params.Pre}}{{ .Params.short |default .Title}}{{safeHTML .Params.Post}}</span>
+
+        {{- $numberOfPages := (add (len .Pages) (len .Sections)) }}
+        {{- $title := .Params.short | default .Title }}
+        
+        {{- if and (ne $numberOfPages 0) (ne .Parent .Site.Home) }}
+            <span class="list-heading">{{safeHTML .Params.Pre}}{{ $title }}{{safeHTML .Params.Post}}</span>
+        {{ else }}
+            <span>{{safeHTML .Params.Pre}}{{ $title }}{{safeHTML .Params.Post}}</span>
+        {{- end }}
 
         {{- if $showvisitedlinks}}<i class="fa fa-check read-icon"></i>{{end}}
 
-        {{- $numberOfPages := (add (len .Pages) (len .Sections)) }}
+        
         {{- if ne $numberOfPages 0 }}
-          {{- if or (.IsAncestor $currentNode) (.Params.alwaysopen) }}
+          <!-- {{- if or (.IsAncestor $currentNode) (.Params.alwaysopen) }}
             <i class="fa fa-angle-down fa-lg category-icon"></i>
           {{- else -}}
             <i class="fa fa-angle-right fa-lg category-icon"></i>
-          {{- end}}
+          {{- end}} -->
         {{- end}}
       </a>
       {{- if ne $numberOfPages 0 }}
