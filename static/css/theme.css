@@ -866,12 +866,15 @@ button {
   margin-bottom: 0.5rem;
 }
 
+article {
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+}
+
 #content {
   width: 100%;
   max-width: 880px;
   font-size: 16px;
   font-weight: 400;
-  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
   line-height: 24px;
 }
 #content .table-of-contents {
@@ -1074,7 +1077,7 @@ div.notices.warning {
 }
 
 code, kbd, pre, samp {
-  font-family: "Fira Code" SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", Courier, monospace;
+  font-family: "Fira Code", SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", Courier, monospace;
   font-feature-settings: "calt" 1;
   font-variant-ligatures: contextual;
   font-size: 85%;
