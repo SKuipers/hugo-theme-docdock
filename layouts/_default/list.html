@@ -16,7 +16,7 @@
         <h4>Pages:</h4>
         <ul class="compact">
         {{ range .Page.Pages.ByWeight }}
-        <li>{{ template "children" dict "depth" 0 "Page" . }}</li>
+        <li>{{ template "children" dict "depth" 1 "Page" . }}</li>
         {{ end }}
         </ul>
     {{ end }}
@@ -29,7 +29,13 @@
 
 		{{ if and $pages (eq $depth 1) }}
 			<h3>{{ .Page.Title }}</h3>
-		
+        {{ else if (eq .depth  0) }}
+            <h3>{{ .Page.Title }}</h3>
+            <ul class="compact">
+            <li>
+                <a href="{{ .Page.URL }}">{{ .Page.Title }}</a><br/>
+            </li>
+            </ul>
 		{{ else }}
 			<a href="{{ .Page.URL }}">{{ .Page.Title }}</a><br/>
 		{{ end }}
